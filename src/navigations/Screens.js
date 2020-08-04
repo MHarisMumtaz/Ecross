@@ -1,6 +1,8 @@
 const Screens = {
   Home: 'Home',
-  CheckoutButton: 'CheckoutButton'
+  MenuButton: 'MenuButton',
+  EIconButton: 'EIconButton',
+  LeftSideMenu: 'LeftSideMenu'
 }
 
 export default Screens;
