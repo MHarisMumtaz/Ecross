@@ -1,19 +1,10 @@
 import { registerScreens } from './navigations/RegisterScreens';
+import { registerEvents } from './navigations/RegisterEvents';
 import { Navigation } from 'react-native-navigation';
 
 const startApp = () => {
 	registerScreens();
-	Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
-		if(buttonId === 'sideMenu'){
-			Navigation.mergeOptions('sideMenuCenterStack', {
-		        sideMenu: {
-		          left: {
-		            visible: true
-		          }
-		        }
-		    });
-		}
-	});
+	registerEvents();
 	Navigation.events().registerAppLaunchedListener(async () => {
 	    setRoot();
 	});
