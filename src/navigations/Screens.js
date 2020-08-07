@@ -2,7 +2,10 @@ const Screens = {
   Home: 'Home',
   MenuButton: 'MenuButton',
   EIconButton: 'EIconButton',
-  LeftSideMenu: 'LeftSideMenu'
+  AppIconButton: 'AppIconButton',
+  LeftSideMenu: 'LeftSideMenu',
+  Search: 'Search',
+  WishList: 'WishList'
 }
 
 export default Screens;
