@@ -7,7 +7,7 @@ class Home extends Component {
 	    return (
 	    	<View>
 	    		<Text>Hello World</Text>	
-	    		<EIconButton icon="person"/>	
+	    		<EIconButton icon="person"/>
 	    	</View>
 	    );
 	}
