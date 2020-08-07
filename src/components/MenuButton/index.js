@@ -6,7 +6,7 @@ import EIconButton from '../EIconButton';
 const MenuButton = () => {
 
   const onButtonPress = () => {
-    Navigation.mergeOptions('sideMenuCenterStack', {
+    Navigation.mergeOptions('BottomTabStack', {
         sideMenu: {
           left: {
             visible: true
