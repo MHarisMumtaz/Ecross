@@ -1,26 +1,36 @@
 import { registerScreens } from './navigations/RegisterScreens';
 import { registerEvents } from './navigations/RegisterEvents';
 import { Navigation } from 'react-native-navigation';
+import { 
+	HAMBURGER_BUTTON_ID, 
+	TOP_RIGHT_BUTTON_ID, 
+	SIDE_MENU_ID,
+	BOTTOM_TAB_ID,
+	BOTTOM_TAB_STACK_ID
+} from './utils/Constants';
 
 const startApp = () => {
 	registerScreens();
 	registerEvents();
 	Navigation.events().registerAppLaunchedListener(async () => {
+		setDefaultOptions();
 	    setRoot();
 	});
 }
-
-const setRoot = () => {
+const setDefaultOptions = () => {
 	Navigation.setDefaultOptions({
 	  topBar: {
 	    title: {
-	      color: 'white',
-	      text: 'Welcome',
+	      component : {
+	      	id: 'appicon',
+	      	name: 'AppIconButton',
+	      	alignment: 'center'
+	      },
 	      alignment: 'center'
 	    },
 	    leftButtons: {
-          id: 'sideMenu',
-          icon: require("../assets/icons8-menu-48.png"),
+          id: HAMBURGER_BUTTON_ID,
+          icon: require("../assets/menu48.png"),
           component: {
         	name: 'MenuButton',
         	passProps: {
@@ -32,7 +42,7 @@ const setRoot = () => {
         },
 	    rightButtons: [
 	      {
-	      	id: 'some',
+	      	id: TOP_RIGHT_BUTTON_ID,
 	        component: {
 	        	name: 'EIconButton',
 	        	passProps: {
@@ -50,36 +60,60 @@ const setRoot = () => {
 	    }
 	  }
 	});
+}
+
+const setRoot = () => {
 	Navigation.setRoot({
 		root: {
 			sideMenu: {
-		        id: "sideMenu",
+		        id: SIDE_MENU_ID,
 		        left: {
 		        	component: {
 			            name: "LeftSideMenu"
 			        }
 		        },
 		        center: {
-		          	stack: {
-			            id: "sideMenuCenterStack",
+		          	bottomTabs : {
+			            id: BOTTOM_TAB_ID,
 			            children: [{
+			            	stack :{
+			            		id: BOTTOM_TAB_STACK_ID,
+			            		children: [{
+					            	component: {
+						                name: "Home"
+						            }
+						        }],
+						        options : {
+						        	bottomTab : {
+						        		icon: require("../assets/home48.png")
+						        	}
+						        }
+				        	}
+			            },{
 			            	component: {
-				                name: "Home"
-				            }
+					            id: 'SearchTab',
+					            name: 'Search',
+					            options: {
+					              bottomTab: {
+					                icon: require("../assets/search48.png")
+					              },
+					            },
+					         },
+			            },
+			            {
+			            	component: {
+					            id: 'WishList',
+					            name: 'WishList',
+					            options: {
+					              bottomTab: {
+					                icon: require("../assets/heart48.png")
+					              },
+					            },
+					         },
 			            }]
 		        	}
 		    	}
-		    }		
-	      // stack: {
-	      //   children: [
-	      //     {
-	      //       component: {
-	      //         name: 'Home'
-	      //       }
-	      //     }
-	      //   ]
-	      // }
-	      
+		    }
 	    }
   	});
 }
