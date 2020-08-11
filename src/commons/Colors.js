@@ -3,6 +3,7 @@ const colors = {
 	secondary: '#909090',
 	background: 'white',
 	grey: 'grey',
+	lightGrey: '#d4d4d4',
 	white: 'white'
 }
 const ColorsCollection = [

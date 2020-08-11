@@ -3,22 +3,18 @@ import { Platform, StyleSheet, Text, Pressable, TouchableOpacity } from 'react-n
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../../commons/Colors';
 
-const EIconButton = ({icon, size = 20, color = 'black', onPress, width, height, style, androidRippleRadius, androidRippleColor}) => {
-
-  const onButtonPress = () => {
-    onPress && onPress();
-  }
+const EIconButton = ({icon, size = 20, color = 'black', onPress = () => {}, style, androidRippleRadius, androidRippleColor}) => {
 
   const iosButton = () => {
     return (
        <TouchableOpacity 
-         onPress={onButtonPress}
+         onPress={onPress}
          style={[
           styles.container,
           style,
           {
-            width: width ? width : 50,
-            height: height ? height : 50
+            width: (style && style.width) ? style.width : 50,
+            height: (style && style.height) ? style.height : 50
           }
         ]}
        >
@@ -34,11 +30,11 @@ const EIconButton = ({icon, size = 20, color = 'black', onPress, width, height, 
           styles.container,
           style,
           {
-            width: width ? width : 50,
-            height: height ? height : 50
+            width: (style && style.width) ? style.width : 50,
+            height: (style && style.height) ? style.height : 50
           }
         ]} 
-        onPress={onButtonPress} 
+        onPress={onPress} 
         android_ripple={{
           color: androidRippleColor ? androidRippleColor : colors.grey,
           radius: androidRippleRadius ? androidRippleRadius : 16
