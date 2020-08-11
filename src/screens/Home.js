@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
-import { SafeAreaView, FlatList, View, Text } from 'react-native';
-import EIconButton from '../components/EIconButton';
+import { StyleSheet, SafeAreaView, FlatList, View, Text } from 'react-native';
+import HorizontalList from './HorizontalList';
 
 class Home extends Component {
 	render() {
 	    return (
-	    	<View>
-	    		<Text>Hello World</Text>	
-	    		<EIconButton icon="person"/>
+	    	<View style={styles.container}>
+	    		<HorizontalList />
 	    	</View>
 	    );
 	}
 }
 
 export default Home;
+const styles = StyleSheet.create({
+  container: {
+    padding:10
+  }
+});

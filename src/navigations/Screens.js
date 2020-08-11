@@ -1,11 +1,13 @@
 const Screens = {
   Home: 'Home',
-  MenuButton: 'MenuButton',
+  EMenuButton: 'EMenuButton',
   EIconButton: 'EIconButton',
-  AppIconButton: 'AppIconButton',
+  EImageButton: 'EImageButton',
+
   LeftSideMenu: 'LeftSideMenu',
   Search: 'Search',
-  WishList: 'WishList'
+  WishList: 'WishList',
+  HorizontalList: 'HorizontalList'
 }
 
 export default Screens;
