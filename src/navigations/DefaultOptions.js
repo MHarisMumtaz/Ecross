@@ -1,0 +1,62 @@
+import colors from '../commons/Colors';
+import Screens from './Screens';
+import { HAMBURGER_BUTTON_ID } from './utils/Constants';
+
+const MenuIcon = require("../../assets/menu48.png");
+const AppIcon = require('../../assets/ecross-logo.png');
+
+const topBarBackground = {
+    background: {
+	  color: colors.background
+	}
+};
+
+const topBarTitle = {
+    component : {
+      	name: Screens.EImageButton,
+      	alignment: 'center',
+      	passProps: {
+      		src: AppIcon
+      	}
+      },
+      alignment: 'center'
+};
+
+const topBarLeftButton = {
+  	id: HAMBURGER_BUTTON_ID,
+  	icon: MenuIcon,
+  	component: {
+		name: Screens.EMenuButton,
+		passProps: {
+			icon: 'ios-menu-outline',
+			color: colors.primary,
+			size: 30
+		}
+  	}     
+};
+
+const topBarRightButtons = [
+  {
+  	id: TOP_RIGHT_BUTTON_ID,
+    component: {
+    	name: Screens.EIconButton,
+    	passProps: {
+    		icon: 'person-outline',
+    		color: colors.primary
+    	}
+    }
+  },
+];
+
+const topBarBackButton = {
+  color: colors.background
+};
+
+const topBar = {
+	background : topBarBackground,
+	title: topBarTitle,
+	leftButtons: topBarLeftButton,
+	rightButtons: topBarRightButtons,
+	backButton: topBarBackButton
+};
+export { topBar };

@@ -1,15 +1,15 @@
 import { registerScreens } from './navigations/RegisterScreens';
 import { registerEvents } from './navigations/RegisterEvents';
+import { topBar } from './navigations/DefaultOptions';
 import { Navigation } from 'react-native-navigation';
-import { 
-	HAMBURGER_BUTTON_ID, 
+
+import {
 	TOP_RIGHT_BUTTON_ID, 
 	SIDE_MENU_ID,
 	BOTTOM_TAB_ID,
 	BOTTOM_TAB_STACK_ID
 } from './utils/Constants';
 import colors from './commons/Colors';
-const AppIcon = require('../assets/ecross-logo.png');
 
 const startApp = () => {
 	registerScreens();
@@ -21,49 +21,7 @@ const startApp = () => {
 }
 const setDefaultOptions = () => {
 	Navigation.setDefaultOptions({
-	  topBar: {
-	    title: {
-	      component : {
-	      	id: 'AppIcon',
-	      	name: 'EImageButton',
-	      	alignment: 'center',
-	      	passProps: {
-	      		src: AppIcon
-	      	}
-	      },
-	      alignment: 'center'
-	    },
-	    leftButtons: {
-          id: HAMBURGER_BUTTON_ID,
-          icon: require("../assets/menu48.png"),
-          component: {
-        	name: 'EMenuButton',
-        	passProps: {
-        		icon: 'ios-menu-outline',
-        		color: colors.primary,
-        		size: 30
-        	}
-	      }
-        },
-	    rightButtons: [
-	      {
-	      	id: TOP_RIGHT_BUTTON_ID,
-	        component: {
-	        	name: 'EIconButton',
-	        	passProps: {
-	        		icon: 'person-outline',
-	        		color: colors.primary
-	        	}
-	        }
-	      },
-	    ],
-	    backButton: {
-	      color: colors.background
-	    },
-	    background: {
-	      color: colors.background
-	    }
-	  }
+	  topBar
 	});
 }
 
