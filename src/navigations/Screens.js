@@ -7,7 +7,8 @@ const Screens = {
   LeftSideMenu: 'LeftSideMenu',
   Search: 'Search',
   WishList: 'WishList',
-  HorizontalList: 'HorizontalList'
+  HorizontalList: 'HorizontalList',
+  HorizontalCategories: 'HorizontalCategories',
 }
 
 export default Screens;

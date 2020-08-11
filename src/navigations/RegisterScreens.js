@@ -7,6 +7,8 @@ import LeftSideMenu from '../screens/LeftSideMenu';
 import Search from '../screens/Search';
 import WishList from '../screens/WishList';
 import HorizontalList from '../screens/HorizontalList';
+import HorizontalCategories from '../screens/HorizontalCategories';
+
 import EImageButton from '../components/EImageButton';
 import EMenuButton from '../components/EMenuButton';
 import EIconButton from '../components/EIconButton';
@@ -21,6 +23,7 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.Search, () => Search);
   Navigation.registerComponent(Screens.WishList, () => WishList);
   Navigation.registerComponent(Screens.HorizontalList, () => HorizontalList);
+  Navigation.registerComponent(Screens.HorizontalCategories, () => HorizontalCategories);
 }
 
 export { registerScreens };

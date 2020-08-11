@@ -6,12 +6,16 @@ import EIconButton from '../components/EIconButton';
 
 class HorizontalList extends Component {
 
+	onPressSeeAllBtn = () => {
+		this.props.onPressSeeAll && this.props.onPressSeeAll();
+	}
+
 	renderItem = ({item, index}) => {
 		return (
 			<View key={item.id} style={styles.boxContainer}>
 				{
 					(this.props.showSeeAllBtn && item.id=='seeAll') ? 
-					  <EIconButton icon='arrow-forward' color={colors.white} style={styles.seeAll}/>
+					  <EIconButton icon='arrow-forward' color={colors.white} style={styles.seeAll} onPress={this.onPressSeeAllBtn} />
 					: <EImageButton src={{uri:item.src}} imageWidth={25} imageHeight={25} containerStyle={[styles.roundBtn, { backgroundColor: ColorsCollection[index] }]}/>
 				}
 				<Text style={styles.title}>{ item.id=='seeAll' ? item.text : item.title}</Text>
