@@ -8,6 +8,8 @@ import {
 	BOTTOM_TAB_ID,
 	BOTTOM_TAB_STACK_ID
 } from './utils/Constants';
+import colors from './commons/Colors';
+const AppIcon = require('../assets/ecross-logo.png');
 
 const startApp = () => {
 	registerScreens();
@@ -22,9 +24,12 @@ const setDefaultOptions = () => {
 	  topBar: {
 	    title: {
 	      component : {
-	      	id: 'appicon',
-	      	name: 'AppIconButton',
-	      	alignment: 'center'
+	      	id: 'AppIcon',
+	      	name: 'EImageButton',
+	      	alignment: 'center',
+	      	passProps: {
+	      		src: AppIcon
+	      	}
 	      },
 	      alignment: 'center'
 	    },
@@ -32,10 +37,10 @@ const setDefaultOptions = () => {
           id: HAMBURGER_BUTTON_ID,
           icon: require("../assets/menu48.png"),
           component: {
-        	name: 'MenuButton',
+        	name: 'EMenuButton',
         	passProps: {
         		icon: 'ios-menu-outline',
-        		color: '#ff5d5a',
+        		color: colors.primary,
         		size: 30
         	}
 	      }
@@ -47,16 +52,16 @@ const setDefaultOptions = () => {
 	        	name: 'EIconButton',
 	        	passProps: {
 	        		icon: 'person-outline',
-	        		color: '#ff5d5a'
+	        		color: colors.primary
 	        	}
 	        }
 	      },
 	    ],
 	    backButton: {
-	      color: 'white'
+	      color: colors.background
 	    },
 	    background: {
-	      color: 'white'
+	      color: colors.background
 	    }
 	  }
 	});
@@ -75,6 +80,8 @@ const setRoot = () => {
 		        center: {
 		          	bottomTabs : {
 			            id: BOTTOM_TAB_ID,
+			            animate: true,
+			            backgroundColor: colors.background,
 			            children: [{
 			            	stack :{
 			            		id: BOTTOM_TAB_STACK_ID,
@@ -85,7 +92,11 @@ const setRoot = () => {
 						        }],
 						        options : {
 						        	bottomTab : {
-						        		icon: require("../assets/home48.png")
+						        		icon: require("../assets/home48.png"),
+						        		iconColor: colors.primary,
+						        		selectedIconColor: colors.secondary,
+						        		fontSize:10,
+						        		iconInsets: { top: 15 }
 						        	}
 						        }
 				        	}
@@ -95,7 +106,10 @@ const setRoot = () => {
 					            name: 'Search',
 					            options: {
 					              bottomTab: {
-					                icon: require("../assets/search48.png")
+					                icon: require("../assets/search48.png"),
+					                iconColor:colors.primary,
+					                selectedIconColor: colors.secondary,
+					                iconInsets: { top: 15 }
 					              },
 					            },
 					         },
@@ -106,7 +120,10 @@ const setRoot = () => {
 					            name: 'WishList',
 					            options: {
 					              bottomTab: {
-					                icon: require("../assets/heart48.png")
+					                icon: require("../assets/heart48.png"),
+					                iconColor:colors.primary,
+					                selectedIconColor: colors.secondary,
+					                iconInsets: { top: 15 }
 					              },
 					            },
 					         },
