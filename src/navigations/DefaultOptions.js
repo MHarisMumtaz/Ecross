@@ -1,6 +1,6 @@
 import colors from '../commons/Colors';
 import Screens from './Screens';
-import { HAMBURGER_BUTTON_ID } from './utils/Constants';
+import { HAMBURGER_BUTTON_ID, TOP_RIGHT_BUTTON_ID } from '../utils/Constants';
 
 const MenuIcon = require("../../assets/menu48.png");
 const AppIcon = require('../../assets/ecross-logo.png');
@@ -18,8 +18,8 @@ const topBarTitle = {
       	passProps: {
       		src: AppIcon
       	}
-      },
-      alignment: 'center'
+    },
+    alignment: 'center'
 };
 
 const topBarLeftButton = {
@@ -53,7 +53,7 @@ const topBarBackButton = {
 };
 
 const topBar = {
-	background : topBarBackground,
+	background: topBarBackground,
 	title: topBarTitle,
 	leftButtons: topBarLeftButton,
 	rightButtons: topBarRightButtons,

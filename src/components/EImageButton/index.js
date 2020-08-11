@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
-const EImageButton = ({ containerStyle, imageWidth, imageHeight, src, onPress = () => {}}) => {
+const EImageButton = ({ containerStyle, opacity=0.3, imageWidth, imageHeight, src, onPress = () => {}}) => {
 
   return (
-    <TouchableOpacity 
+    <TouchableOpacity
+      activeOpacity={opacity}
       onPress={onPress} 
       style={containerStyle ? containerStyle : styles.container}
     >
