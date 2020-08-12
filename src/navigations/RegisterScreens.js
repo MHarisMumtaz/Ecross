@@ -13,14 +13,12 @@ import ProductCard from '../screens/ProductCard';
 import EImageButton from '../components/EImageButton';
 import EMenuButton from '../components/EMenuButton';
 import EIconButton from '../components/EIconButton';
-import EHorizontalButtonsList from '../components/EHorizontalButtonsList';
 
 const registerScreens = () => {
   Navigation.registerComponent(Screens.Home, () => Home);
   Navigation.registerComponent(Screens.EImageButton, () => EImageButton);
   Navigation.registerComponent(Screens.EIconButton, () => EIconButton);
   Navigation.registerComponent(Screens.EMenuButton, () => EMenuButton);
-  Navigation.registerComponent(Screens.EHorizontalButtonsList, () => EHorizontalButtonsList);
 
   Navigation.registerComponent(Screens.LeftSideMenu, () => LeftSideMenu);
   Navigation.registerComponent(Screens.Search, () => Search);
