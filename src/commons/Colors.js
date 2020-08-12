@@ -4,7 +4,9 @@ const colors = {
 	background: 'white',
 	grey: 'grey',
 	lightGrey: '#d4d4d4',
-	white: 'white'
+	lightBlack: '#353535',
+	white: 'white',
+	golden: '#ffca01'
 }
 const ColorsCollection = [
 	'#B6EA7D',

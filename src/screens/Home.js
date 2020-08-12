@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, SafeAreaView, FlatList, View, Text } from 'react-native';
 import HorizontalCategories from './HorizontalCategories';
 import HorizontalBanners from './HorizontalBanners';
+import ProductCard from './ProductCard';
 
 class Home extends Component {
 	render() {
@@ -9,6 +10,7 @@ class Home extends Component {
 	    	<View style={styles.container}>
 	    		<HorizontalCategories />
 	    		<HorizontalBanners />
+	    		<ProductCard />
 	    	</View>
 	    );
 	}
