@@ -1,24 +1,49 @@
-import React, {Component} from 'react';
-import { StyleSheet, SafeAreaView, FlatList, View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { Dimensions, StyleSheet, ScrollView, SafeAreaView, FlatList, View, Text, RefreshControl } from 'react-native';
 import HorizontalCategories from './HorizontalCategories';
 import HorizontalBanners from './HorizontalBanners';
 import ProductCard from './ProductCard';
 
-class Home extends Component {
-	render() {
-	    return (
-	    	<View style={styles.container}>
+const windowHeight = Dimensions.get('window').height;
+const wait = (timeout) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeout);
+  });
+}
+
+const Home = () => {
+	
+	const [refreshing, setRefreshing] = useState(false);
+
+	const onRefresh = React.useCallback(() => {
+	    setRefreshing(true);
+
+	    wait(2000).then(() => setRefreshing(false));
+	}, []);
+
+    return (
+    	<SafeAreaView style={styles.container}>
+	    	<ScrollView 
+	    		contentContainerStyle={styles.contentContainer} 
+	    		fadingEdgeLength={100}
+	    		refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+      		>
 	    		<HorizontalCategories />
 	    		<HorizontalBanners />
 	    		<ProductCard />
-	    	</View>
-	    );
-	}
+	    	</ScrollView>
+    	</SafeAreaView>
+    );
 }
 
 export default Home;
 const styles = StyleSheet.create({
   container: {
-    padding:0
+    padding:0,
+    height: windowHeight / 1.3,
+    flex: 1,
+  },
+  contentContainer: {
+    paddingVertical: 20
   }
 });

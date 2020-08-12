@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   imageContainer: {
-  	 width: windowWidth/2.4,
-     height: 185/1.4,
+  	 width: windowWidth / 2.4,
+     height: 185 / 1.4,
      flexDirection: 'row',
      justifyContent: 'flex-end',
      paddingTop:5
