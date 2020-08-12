@@ -8,7 +8,7 @@ const windowWidth = Dimensions.get('window').width;
 
 const dummyProductImage = 'https://atlas-content-cdn.pixelsquid.com/stock-images/armchair-arm-chair-6360XZ2-600.jpg';
 
-const ProductCard = ({}) => {
+const ProductCard = ({id, title, price, imageUrl, totalRating, containerStyle, onPressProduct = () => {}, onPressFavorite = (id) => {}}) => {
 
 	const [heartName, setHeartName] = useState('heart-outline');
 
@@ -18,15 +18,16 @@ const ProductCard = ({}) => {
 		}else{
 			setHeartName('heart-outline');
 		}
+		onPressFavorite && onPressFavorite(id);
 	}
 
     return (
     	<TouchableOpacity
-    		style={styles.container}
-    		onPress={()=>{}}
+    		style={[styles.container,containerStyle]}
+    		onPress={onPressProduct}
     	>
     		<ImageBackground 
-    			source={{uri:dummyProductImage}} 
+    			source={{uri:imageUrl}} 
     			style={styles.imageContainer} 
     			imageStyle={styles.image}
     		>
@@ -40,13 +41,15 @@ const ProductCard = ({}) => {
 		      />
 		    </ImageBackground>
     		
-    		<Text style={styles.title}>Maria B Clothing</Text>
+    		<Text style={styles.title}>{title}</Text>
     		<View style={styles.bottomPart}>
-    			<Text style={styles.price}>$12000</Text>
-    			<View style={styles.ratingBox}>
-    				<Icon name="star" color={colors.golden} style={styles.starIcon}/>
-    				<Text style={styles.ratingValue}>5.4</Text>
-    			</View>
+    			<Text style={styles.price}>{price}</Text>
+    			{ totalRating &&
+	    			<View style={styles.ratingBox}>
+	    				<Icon name="star" color={colors.golden} style={styles.starIcon}/>
+	    				<Text style={styles.ratingValue}>{totalRating}</Text>
+	    			</View>
+    			}
     		</View>
     	</TouchableOpacity>
     );
@@ -71,11 +74,12 @@ const styles = StyleSheet.create({
      height: 185 / 1.4,
      flexDirection: 'row',
      justifyContent: 'flex-end',
-     paddingTop:5
+     paddingTop:5,
   },
   image: {
   	borderTopRightRadius:10,
   	borderTopLeftRadius:10,
+ 	resizeMode: "contain",
   },
   title: {
   	color: colors.lightBlack,

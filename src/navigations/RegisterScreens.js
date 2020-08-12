@@ -9,6 +9,7 @@ import WishList from '../screens/WishList';
 import HorizontalCategories from '../screens/HorizontalCategories';
 import HorizontalBanners from '../screens/HorizontalBanners';
 import ProductCard from '../screens/ProductCard';
+import FeaturedProducts from '../screens/FeaturedProducts';
 
 import EImageButton from '../components/EImageButton';
 import EMenuButton from '../components/EMenuButton';
@@ -26,6 +27,7 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.HorizontalCategories, () => HorizontalCategories);
   Navigation.registerComponent(Screens.HorizontalBanners, () => HorizontalBanners);
   Navigation.registerComponent(Screens.ProductCard, () => ProductCard);
+  // Navigation.registerComponent(Screens.FeaturedProducts, () => FeaturedProducts);
 }
 
 export { registerScreens };

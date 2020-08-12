@@ -10,7 +10,8 @@ const Screens = {
   WishList: 'WishList',
   HorizontalCategories: 'HorizontalCategories',
   HorizontalBanners: 'HorizontalBanners',
-  ProductCard: 'ProductCard'
+  ProductCard: 'ProductCard',
+  FeaturedProducts: 'FeaturedProducts'
 }
 
 export default Screens;

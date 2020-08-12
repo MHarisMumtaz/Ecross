@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dimensions, StyleSheet, ScrollView, SafeAreaView, FlatList, View, Text, RefreshControl } from 'react-native';
 import HorizontalCategories from './HorizontalCategories';
 import HorizontalBanners from './HorizontalBanners';
-import ProductCard from './ProductCard';
+import FeaturedProducts from './FeaturedProducts';
 
 const windowHeight = Dimensions.get('window').height;
 const wait = (timeout) => {
@@ -30,7 +30,7 @@ const Home = () => {
       		>
 	    		<HorizontalCategories />
 	    		<HorizontalBanners />
-	    		<ProductCard />
+	    		<FeaturedProducts />
 	    	</ScrollView>
     	</SafeAreaView>
     );
