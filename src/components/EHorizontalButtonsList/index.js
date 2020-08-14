@@ -4,11 +4,7 @@ import colors, { ColorsCollection } from '../../commons/Colors';
 import EImageButton from '../EImageButton';
 import EIconButton from '../EIconButton';
 
-const EHorizontalButtonList = ({showSeeAllBtn, data, btnContainerStyle, showBgColor, imageStyle, imageWidth, imageHeight}) => {
-
-	onPressSeeAllBtn = () => {
-		this.props.onPressSeeAll && this.props.onPressSeeAll();
-	}
+const EHorizontalButtonList = ({showSeeAllBtn, data, btnContainerStyle, showBgColor, imageStyle, imageWidth, imageHeight, onPressSeeAll = () => {}}) => {
 
 	renderItem = ({item, index}) => {
 		return (
@@ -19,7 +15,7 @@ const EHorizontalButtonList = ({showSeeAllBtn, data, btnContainerStyle, showBgCo
 					  	icon='arrow-forward' 
 					  	color={colors.white}
 					  	style={styles.seeAll} 
-					  	onPress={onPressSeeAllBtn} 
+					  	onPress={onPressSeeAll} 
 					  />
 					: <EImageButton 
 						src={{uri:item.src}}
