@@ -22,7 +22,7 @@ const topBarTitle = {
     alignment: 'center'
 };
 
-const topBarLeftButton = {
+export const topBarLeftButton = [{
   	id: HAMBURGER_BUTTON_ID,
   	icon: MenuIcon,
   	component: {
@@ -31,9 +31,9 @@ const topBarLeftButton = {
 			icon: 'ios-menu-outline',
 			color: colors.primary,
 			size: 30
-		}
-  	}     
-};
+		},
+  	}
+}];
 
 const topBarRightButtons = [
   {
@@ -49,7 +49,7 @@ const topBarRightButtons = [
 ];
 
 const topBarBackButton = {
-  color: colors.background
+  color: colors.primary
 };
 
 const topBar = {
