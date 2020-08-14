@@ -6,10 +6,8 @@ import Home from '../screens/Home';
 import LeftSideMenu from '../screens/LeftSideMenu';
 import Search from '../screens/Search';
 import WishList from '../screens/WishList';
-import HorizontalCategories from '../screens/HorizontalCategories';
-import HorizontalBanners from '../screens/HorizontalBanners';
 import ProductCard from '../screens/ProductCard';
-import FeaturedProducts from '../screens/FeaturedProducts';
+import ProductDetails from '../screens/ProductDetails';
 
 import EImageButton from '../components/EImageButton';
 import EMenuButton from '../components/EMenuButton';
@@ -24,10 +22,7 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.LeftSideMenu, () => LeftSideMenu);
   Navigation.registerComponent(Screens.Search, () => Search);
   Navigation.registerComponent(Screens.WishList, () => WishList);
-  Navigation.registerComponent(Screens.HorizontalCategories, () => HorizontalCategories);
-  Navigation.registerComponent(Screens.HorizontalBanners, () => HorizontalBanners);
-  Navigation.registerComponent(Screens.ProductCard, () => ProductCard);
-  // Navigation.registerComponent(Screens.FeaturedProducts, () => FeaturedProducts);
+  Navigation.registerComponent(Screens.ProductDetails, () => ProductDetails);
 }
 
 export { registerScreens };

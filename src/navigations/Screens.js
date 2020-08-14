@@ -11,6 +11,7 @@ const Screens = {
   HorizontalCategories: 'HorizontalCategories',
   HorizontalBanners: 'HorizontalBanners',
   ProductCard: 'ProductCard',
+  ProductDetails: 'ProductDetails',
   FeaturedProducts: 'FeaturedProducts'
 }
 
