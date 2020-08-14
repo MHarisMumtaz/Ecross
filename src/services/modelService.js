@@ -1,0 +1,30 @@
+import { Navigation } from 'react-native-navigation';
+import { MODAL_DISMISS_BUTTON_ID } from '../utils/Constants';
+
+const DEFAULT_OPTION = {
+   topBar: {
+	    leftButtons: {
+	      id: MODAL_DISMISS_BUTTON_ID,
+	      icon: require('../../assets/arrow-left.png')
+	    }
+  	}  
+}
+
+export const showModal = (screenName, options = DEFAULT_OPTION) => {
+	Navigation.showModal({
+	  stack: {
+	    children: [
+	      {
+	        component: {
+	          name: screenName,
+	          options: options
+	        }
+	      }
+	    ]
+	  }
+	});
+}
+
+export const dismissModal = (screenName) => {
+	 Navigation.dismissModal(screenName);
+}
