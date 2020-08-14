@@ -11,14 +11,6 @@ import {
 } from './utils/Constants';
 import colors from './commons/Colors';
 
-const startApp = () => {
-	registerScreens();
-	registerEvents();
-	Navigation.events().registerAppLaunchedListener(async () => {
-		setDefaultOptions();
-	    setRoot();
-	});
-}
 const setDefaultOptions = () => {
 	Navigation.setDefaultOptions({
 	  topBar
@@ -93,4 +85,12 @@ const setRoot = () => {
   	});
 }
 
+const startApp = () => {
+	registerScreens();
+	registerEvents();
+	Navigation.events().registerAppLaunchedListener(async () => {
+		setDefaultOptions();
+	    setRoot();
+	});
+}
 export { startApp };

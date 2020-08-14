@@ -11,7 +11,7 @@ const wait = (timeout) => {
   });
 }
 
-const Home = () => {
+const Home = (props) => {
 	
 	const [refreshing, setRefreshing] = useState(false);
 
@@ -28,9 +28,9 @@ const Home = () => {
 	    		fadingEdgeLength={100}
 	    		refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       		>
-	    		<HorizontalCategories />
-	    		<HorizontalBanners />
-	    		<FeaturedProducts />
+	    		<HorizontalCategories {...props} />
+	    		<HorizontalBanners {...props} />
+	    		<FeaturedProducts {...props} />
 	    	</ScrollView>
     	</SafeAreaView>
     );

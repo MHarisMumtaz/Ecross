@@ -1,14 +1,14 @@
 import React,{ useState } from 'react';
-import { StyleSheet, TouchableOpacity, Image, ImageBackground, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, TouchableOpacity, ImageBackground, View, Text, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../commons/Colors';
 import EIconButton from '../components/EIconButton';
+import Screens from '../navigations/Screens';
+import { showModal } from '../services/modelService';
 
 const windowWidth = Dimensions.get('window').width;
 
-const dummyProductImage = 'https://atlas-content-cdn.pixelsquid.com/stock-images/armchair-arm-chair-6360XZ2-600.jpg';
-
-const ProductCard = ({id, title, price, imageUrl, totalRating, containerStyle, onPressProduct = () => {}, onPressFavorite = (id) => {}}) => {
+const ProductCard = ({id, title, price, imageUrl, totalRating, containerStyle, onPressProduct, onPressFavorite = (id) => {}}) => {
 
 	const [heartName, setHeartName] = useState('heart-outline');
 
@@ -21,10 +21,17 @@ const ProductCard = ({id, title, price, imageUrl, totalRating, containerStyle, o
 		onPressFavorite && onPressFavorite(id);
 	}
 
+	const onPress = () => {
+		if (onPressProduct) {
+			onPressProduct(id);
+		}else{
+			showModal(Screens.ProductDetails);
+		}
+	}
     return (
     	<TouchableOpacity
     		style={[styles.container,containerStyle]}
-    		onPress={onPressProduct}
+    		onPress={onPress}
     	>
     		<ImageBackground 
     			source={{uri:imageUrl}} 
@@ -59,11 +66,11 @@ export default ProductCard;
 const styles = StyleSheet.create({
   container: {
 	width: windowWidth/2.4,
-	height:185,
+	height:220,
 	borderRadius:10,
-	backgroundColor: 'white',
+	backgroundColor: colors.white,
 	elevation:10, //Android
-	shadowColor: 'gray', // IOS
+	shadowColor: colors.grey, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
     shadowOpacity: 1, // IOS
     shadowRadius: 3, //IOS
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
   	 width: windowWidth / 2.4,
-     height: 185 / 1.4,
+     height: 188 / 1.4,
      flexDirection: 'row',
      justifyContent: 'flex-end',
      paddingTop:5,
@@ -83,13 +90,14 @@ const styles = StyleSheet.create({
   },
   title: {
   	color: colors.lightBlack,
-  	padding:8,
-  	paddingBottom:0
+	height:50,
+  	padding:10,
+  	paddingBottom: 0
   },
   price: {
   	padding: 8,
   	fontWeight:'bold',
-  	fontSize:12
+  	fontSize:14
   },
   bottomPart: {
   	flexDirection: 'row',
