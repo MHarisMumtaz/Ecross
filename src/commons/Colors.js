@@ -6,7 +6,8 @@ const colors = {
 	lightGrey: '#d4d4d4',
 	lightBlack: '#353535',
 	white: 'white',
-	golden: '#ffca01'
+	golden: '#ffca01',
+	orange: '#ffc00e'
 }
 const ColorsCollection = [
 	'#B6EA7D',

@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, ScrollView, SafeAreaView, FlatList, View, Text,
 import HorizontalCategories from './HorizontalCategories';
 import HorizontalBanners from './HorizontalBanners';
 import FeaturedProducts from './FeaturedProducts';
+import EFab from '../components/EFab';
 
 const windowHeight = Dimensions.get('window').height;
 const wait = (timeout) => {
@@ -32,6 +33,7 @@ const Home = (props) => {
 	    		<HorizontalBanners {...props} />
 	    		<FeaturedProducts {...props} />
 	    	</ScrollView>
+        <EFab icon='cart-outline' size={30} />
     	</SafeAreaView>
     );
 }
