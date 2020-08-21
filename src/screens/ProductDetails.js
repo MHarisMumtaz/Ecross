@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, SafeAreaView, ScrollView, Image, ImageBackground, View, Text, Dimensions } from 'react-native';
-import colors from '../commons/Colors';
+import colors, { ColorsCollection } from '../commons/Colors';
 import ECarousal from '../components/ECarousal';
+import ESelectableColorList from '../components/ESelectableColorList';
 
 const data = [
 	{
@@ -14,11 +15,42 @@ const data = [
 		url: 'https://pngimg.com/uploads/cap/cap_PNG5685.png'
 	}
 ]
+const productColors = [
+	{
+		color: 'red',
+		selected: false
+	},
+	{
+		color: 'yellow',
+		selected: false
+	},
+	{
+		color: 'brown',
+		selected: false
+	},
+	{
+		color: 'green',
+		selected: false
+	},
+	{
+		color: 'blue',
+		selected: false
+	}
+]
+
 const ProductDetails = ({}) => {
+	const [colorCollection,setColorCollection] = useState([...productColors]);
+
+	const onColorPress = (item, i) => {
+		colorCollection[i].selected =! colorCollection[i].selected;
+		setColorCollection([...colorCollection]);
+	};
+
     return (
       <SafeAreaView>
       	<ScrollView nestedScrollEnabled={true}>
         	<ECarousal items={data} />
+        	<ESelectableColorList colorsCollection={colorCollection} onPress={(item,i)=> onColorPress(item,i)} />
         </ScrollView>
       </SafeAreaView>
     );
@@ -26,5 +58,4 @@ const ProductDetails = ({}) => {
 
 export default ProductDetails;
 const styles = StyleSheet.create({
- 
 });

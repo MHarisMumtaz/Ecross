@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   image: {
   	borderTopRightRadius:10,
   	borderTopLeftRadius:10,
- 	resizeMode: "contain",
+ 	  resizeMode: "contain",
   },
   title: {
   	color: colors.lightBlack,

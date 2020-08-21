@@ -23,7 +23,10 @@ const ColorsCollection = [
 	'#E5F1FF',
 	'#9AD79A',
 	'#E5E5F7',
-	'#F67FBF'
+	'#F67FBF',
+	'#DBD7D2',
+	'#324AB2',
+	'#FFAE42'
 ]
 export { ColorsCollection };
 export default colors;
