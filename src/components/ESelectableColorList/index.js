@@ -12,9 +12,10 @@ const ESelectableColorList = ({colorsCollection = [], onPress = ()=>{}}) => {
                                 style={{
                                     ...styles.colorBox, 
                                     backgroundColor: item.color,
-                                    borderWidth: item.selected ? 4 : 1,
-                                    width: item.selected ? 18 : 15,
-                                    height: item.selected ? 18 : 15
+                                    borderWidth: item.selected ? 2 : 1,
+                                    width: item.selected ? 32 : 25,
+                                    height: item.selected ? 32 : 25,
+                                    borderColor: colors.white
                                 }} 
                                 onPress={()=> onPress(item, i)}
                             >
@@ -30,13 +31,18 @@ const styles = StyleSheet.create({
 	colorContainer:{
 		flex:1,
 		flexDirection: 'row',
-		justifyContent: 'space-evenly',
 		padding: 10
 	},
 	colorBox:{
-		width: 15,
-		height: 15,
+        margin: 10,
+		width: 25,
+		height: 25,
         borderRadius: 40,
-        borderColor: colors.grey
+        borderColor: colors.white,
+        elevation:5, //Android
+        shadowColor: colors.grey, // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 3, //IOS
 	}
 });
