@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, SafeAreaView, ScrollView, Image, ImageBackground, View, Text, Dimensions } from 'react-native';
 import colors, { ColorsCollection } from '../commons/Colors';
 import ECarousal from '../components/ECarousal';
-import ESelectableColorList from '../components/ESelectableColorList';
+import ESelectableList from '../components/ESelectableList';
 import ERating from '../components/ERating';
 
 const data = [
@@ -37,10 +37,43 @@ const productColors = [
 		color: 'blue',
 		selected: false
 	}
+];
+
+const productSizes = [
+	{
+		text: 'S'
+	},
+	{
+		text: 'XS'
+	},
+	{
+		text: 'M'
+	},
+	{
+		text: 'L'
+	},
+	{
+		text: 'XL'
+	},
+	{
+		text: 'XXL'
+	}
 ]
 
 const ProductDetails = ({}) => {
 	const [colorCollection,setColorCollection] = useState([...productColors]);
+	const [sizeCollection, setSizeCollection] = useState([...productSizes]);
+
+	const onSizePress = (item, i) => {
+		const updatedCollection = sizeCollection.map((obj,index)=>{
+			obj.selected = false;
+			if(index===i){
+				obj.selected =! obj.selected;
+			}
+			return obj;
+		});
+		setSizeCollection(updatedCollection);
+	};
 
 	const onColorPress = (item, i) => {
 		const updatedCollection = colorCollection.map((obj,index)=>{
@@ -67,7 +100,8 @@ const ProductDetails = ({}) => {
 	        	</View>
 		        <ERating rating={1.4} />
 	        </View>
-        	<ESelectableColorList colorsCollection={colorCollection} onPress={(item,i)=> onColorPress(item,i)} />
+        	<ESelectableList collection={colorCollection} onPress={(item,i)=> onColorPress(item,i)} />
+        	<ESelectableList collection={sizeCollection} buttonStyle={styles.sizeButton} onPress={(item,i)=> onSizePress(item,i)} />
         </ScrollView>
       </SafeAreaView>
     );
@@ -97,5 +131,10 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'line-through', 
 		textDecorationStyle: 'solid',
 		color: colors.secondary
+	},
+	sizeButton: {
+		borderRadius: 0,
+		width: 40,
+		height: 40,
 	}
 });
