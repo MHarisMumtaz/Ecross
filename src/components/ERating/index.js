@@ -21,7 +21,7 @@ const ERating = ({rating, filledIcon = 'md-star', filledColor = colors.golden, b
 				iconColor = blankColor;
 			}
 		   	stars.push(
-			   	<TouchableOpacity key={i} onPress={()=> onPress(i)}>
+			   	<TouchableOpacity key={i} onPress={() => onPress(i)}>
 					 <Icon name={iconName} size={size} color={iconColor} />
 				</TouchableOpacity>
 			);

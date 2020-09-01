@@ -1,8 +1,8 @@
 import React from 'react';
-import { Platform, StyleSheet, Text, TouchableOpacity, View, Text } from 'react-native';
+import { Platform, StyleSheet, Pressable, TouchableOpacity, View, Text } from 'react-native';
 import colors from '../../commons/Colors';
 
-const ETextButton = ({text, androidRippleColor, androidRippleRadius, containerStyle, onPress = () => {}}) => {
+const ETextButton = ({children, androidRippleColor, androidRippleRadius, containerStyle, onPress = () => {}}) => {
 
   const iosButton = () => {
     return (
@@ -10,14 +10,14 @@ const ETextButton = ({text, androidRippleColor, androidRippleRadius, containerSt
          onPress={onPress}
          style={[
           styles.container,
-          style,
+          containerStyle,
           {
-            width: (containerStyle && containerStyle.width) ? containerStyle.width : 50,
+            width: (containerStyle && containerStyle.width) ? containerStyle.width : 100,
             height: (containerStyle && containerStyle.height) ? containerStyle.height : 50
           }
         ]}
        >
-         <Text>{text}</Text>
+          {children}
        </TouchableOpacity>
      )
   }
@@ -27,9 +27,9 @@ const ETextButton = ({text, androidRippleColor, androidRippleRadius, containerSt
       <Pressable 
         style={[
           styles.container,
-          style,
+          containerStyle,
           {
-            width: (containerStyle && containerStyle.width) ? containerStyle.width : 50,
+            width: (containerStyle && containerStyle.width) ? containerStyle.width : 100,
             height: (containerStyle && containerStyle.height) ? containerStyle.height : 50
           }
         ]} 
@@ -38,7 +38,7 @@ const ETextButton = ({text, androidRippleColor, androidRippleRadius, containerSt
           color: androidRippleColor ? androidRippleColor : colors.grey,
           radius: androidRippleRadius ? androidRippleRadius : 16
         }}>
-          <Text>{text}</Text>
+          {children}
       </Pressable>
     )
   }
@@ -51,8 +51,11 @@ export default ETextButton;
 
 const styles = StyleSheet.create({
   container: {
-     flex:1,
      justifyContent: 'center',
-     backgroundColor: colors.secondary
+     backgroundColor: colors.primary
+  },
+  text:{
+    textAlign: 'center',
+    color: colors.white
   }
 });
