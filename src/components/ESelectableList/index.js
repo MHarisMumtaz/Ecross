@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View, Text, Dimensions } from 'react-nati
 import colors from '../../commons/Colors';
 
 
-const ESelectableList = ({collection = [], buttonStyle , onPress = ()=>{}}) => {
+const ESelectableList = ({collection = [], buttonStyle, textStyle, onPress = ()=>{}}) => {
 
     const width = 22;
     const height = 22;
@@ -50,7 +50,7 @@ const ESelectableList = ({collection = [], buttonStyle , onPress = ()=>{}}) => {
                                 }]} 
                                 onPress={()=> onPress(item, i)}
                             >
-                        <Text style={styles.text}>{item.text}</Text>
+                        <Text style={textStyle ? textStyle : styles.text}>{item.text}</Text>
                     </TouchableOpacity>
                 })
             }
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3, //IOS
 	},
     text:{
+        fontSize: 12,
         textAlign: 'center'
     }
 });
