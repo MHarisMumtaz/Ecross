@@ -98,7 +98,7 @@ const ProductDetails = ({}) => {
 	const [selectedSegmentIndex, setSelectedSegmentIndex] = useState(0);
 	const [quantity, setQuantity] = useState(1);
 
-	const onSizePress = (item, i) => {
+	const onPressSize = (item, i) => {
 		const updatedCollection = sizeCollection.map((obj,index)=>{
 			obj.selected = false;
 			if(index===i){
@@ -109,7 +109,7 @@ const ProductDetails = ({}) => {
 		setSizeCollection(updatedCollection);
 	};
 
-	const onColorPress = (item, i) => {
+	const onPressColor = (item, i) => {
 		const updatedCollection = colorCollection.map((obj,index)=>{
 			obj.selected = false;
 			if(index===i){
@@ -159,8 +159,8 @@ const ProductDetails = ({}) => {
 			        	/>
 			        </View>
 		        </View>
-	        	<ESelectableList collection={colorCollection} onPress={(item,i)=> onColorPress(item,i)} />
-	        	<ESelectableList collection={sizeCollection} buttonStyle={styles.sizeButton} onPress={(item,i)=> onSizePress(item,i)} />
+	        	<ESelectableList collection={colorCollection} onPress={(item,i)=> onPressColor(item,i)} />
+	        	<ESelectableList collection={sizeCollection} buttonStyle={styles.sizeButton} onPress={(item,i)=> onPressSize(item,i)} />
 	        	<SegmentedControl
 				    values={['Details', 'Reviews']}
 				    tintColor={colors.primary}
