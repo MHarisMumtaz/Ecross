@@ -9,6 +9,7 @@ import ERating from '../components/ERating';
 import EIconButton from '../components/EIconButton';
 import ETextButton from '../components/ETextButton';
 import ECommentCard from '../components/ECommentCard';
+import ECounter from '../components/ECounter';
 
 const windowHeight = Dimensions.get('window').height;
 const data = [
@@ -95,6 +96,7 @@ const ProductDetails = ({}) => {
 	const [sizeCollection, setSizeCollection] = useState([...productSizes]);
 	const [favoriteIconName, setFavoriteIconName] = useState('heart-outline');
 	const [selectedSegmentIndex, setSelectedSegmentIndex] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 
 	const onSizePress = (item, i) => {
 		const updatedCollection = sizeCollection.map((obj,index)=>{
@@ -124,6 +126,13 @@ const ProductDetails = ({}) => {
 		}else{
 			setFavoriteIconName('heart-outline');
 		}
+	};
+
+	const onPressAddQuantity = () => {
+		setQuantity(quantity + 1);
+	}
+	const onPressReduceQuantity = () => {
+		setQuantity(quantity - 1);
 	}
 
     return (
@@ -143,6 +152,11 @@ const ProductDetails = ({}) => {
 		        	</View>
 		        	<View style={styles.ratingSection}>
 			        	<ERating rating={1.4} />
+			        	<ECounter 
+			        		value={quantity}
+			        		onPressLeft={onPressReduceQuantity} 
+			        		onPressRight={onPressAddQuantity} 
+			        	/>
 			        </View>
 		        </View>
 	        	<ESelectableList collection={colorCollection} onPress={(item,i)=> onColorPress(item,i)} />
@@ -187,12 +201,12 @@ const ProductDetails = ({}) => {
 	        </ScrollView>
         </View>
         <View style={styles.footer}>
-        		<ETextButton containerStyle={styles.favoriteButton}>
-        			<Text style={styles.favoriteButtonText}>Add to Favorite <Icon name='heart' size={20}/></Text>
-        		</ETextButton>
-        		<ETextButton containerStyle={styles.buyButton}>
-        			<Text style={styles.buyButtonText}>Buy now <Icon name='cart' size={20}/></Text>
-        		</ETextButton>
+    		<ETextButton containerStyle={styles.favoriteButton}>
+    			<Text style={styles.favoriteButtonText}>Add to Favorite <Icon name='heart' size={18}/></Text>
+    		</ETextButton>
+    		<ETextButton containerStyle={styles.buyButton}>
+    			<Text style={styles.buyButtonText}>Buy now <Icon name='cart' size={18}/></Text>
+    		</ETextButton>
         </View>
       </SafeAreaView>
     );
@@ -233,7 +247,8 @@ const styles = StyleSheet.create({
 		color: colors.primary
 	},
 	ratingSection:{
-		flexDirection: 'row'
+		flexDirection: 'row',
+		justifyContent: 'space-between'
 	},
 	productOldPrice: {
 		fontSize: 16,
@@ -284,5 +299,8 @@ const styles = StyleSheet.create({
 	},
 	reviewBox:{
 		marginBottom: 10
+	},
+	quantityContainer:{
+		padding: 5
 	}
 });
