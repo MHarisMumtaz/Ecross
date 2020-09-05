@@ -31,34 +31,41 @@ const categories = [
 const sideMenuData = [
   {
     id: 1,
-    title: 'Home',
+    name: 'Home',
     icon: 'home-outline',
     iconSize: 18,
     iconColor: colors.primary
   },
   {
     id: 2,
-    title: 'Categories',
+    name: 'Categories',
     data: categories
   },
   {
+    id: 5,
+    name: 'Notifications',
+    icon: 'notifications-outline',
+    iconSize: 18,
+    iconColor: colors.primary
+  },
+  {
     id: 3,
-    title: 'About us',
+    name: 'About us',
     icon: 'alert-circle-outline',
     iconSize: 18,
     iconColor: colors.primary
   },
   {
     id: 4,
-    title: 'Contact us',
+    name: 'Contact us',
     icon: 'call-outline',
     iconSize: 18,
     iconColor: colors.primary
   },
   {
-    id: 5,
-    title: 'Notifications',
-    icon: 'notifications-outline',
+    id: 6,
+    name: 'Log out',
+    icon: 'log-out-outline',
     iconSize: 18,
     iconColor: colors.primary
   }
@@ -85,7 +92,7 @@ const LeftSideMenu = () => {
     return (
       <TouchableOpacity key={item.id} style={styles.singleOption} onPress={() => {}}>
         {item.icon && <Icon name={item.icon} size={item.iconSize} color={item.iconColor} />}
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.title}>{item.name}</Text>
       </TouchableOpacity>
     );
   }
@@ -134,7 +141,8 @@ export default LeftSideMenu;
 
 const styles = StyleSheet.create({
   parentCatgeory:{
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    paddingLeft: 55
   },
   singleOption:{
     flexDirection: 'row',
