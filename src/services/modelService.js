@@ -7,7 +7,7 @@ const DEFAULT_OPTION = {
 	      id: MODAL_DISMISS_BUTTON_ID,
 	      icon: require('../../assets/arrow-left.png')
 	    }
-  	}  
+  	},
 }
 
 export const showModal = (screenName, options = DEFAULT_OPTION) => {
@@ -26,5 +26,5 @@ export const showModal = (screenName, options = DEFAULT_OPTION) => {
 }
 
 export const dismissModal = (screenName) => {
-	 Navigation.dismissModal(screenName);
+	Navigation.dismissModal(screenName);
 }
