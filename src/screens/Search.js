@@ -3,8 +3,11 @@ import { StyleSheet, ScrollView, SafeAreaView, FlatList, View, Text, Dimensions 
 import colors from '../commons/Colors';
 import ETextInput from '../components/ETextInput';
 import EIconButton from '../components/EIconButton';
+import EModal from '../components/EModal';
 
 import ProductCard from './ProductCard';
+import SearchFilters from './SearchFilters';
+
 const windowHeight = Dimensions.get('window').height;
 
 const DATA = [
@@ -116,6 +119,7 @@ const DATA = [
 ];
 const Search = () => {
 	const [searchValue, setSearchValue] = useState();
+	const [isShowFilter, setIsShowFilter] = useState(false);
 
 	const onSearchChangeText = (value) => {	
 		if(value)
@@ -128,6 +132,13 @@ const Search = () => {
 		setSearchValue(null);
 	}
 
+	const onPressFilter = () => {
+		setIsShowFilter(!isShowFilter);
+	}
+
+	const onCloseFilter = () => {
+		setIsShowFilter(false);
+	}
 
     const renderItem = ({item, index}) => {
     	return (<View key={index} style={styles.productBox}>
@@ -143,7 +154,11 @@ const Search = () => {
 
     return (
     	<SafeAreaView style={styles.container}>
+    		<EModal isShow={isShowFilter} onBackdropPress={onCloseFilter}>
+    			<SearchFilters />
+    		</EModal>
     		<View style={styles.searchSection}>
+
 	    		<ETextInput
 	    			rounded
 	    			showShadow
@@ -152,12 +167,12 @@ const Search = () => {
 	    			placeholder='search'
 	    			onTextChange={onSearchChangeText}
 	    			onPressClear={onPressClear}
-	    			leftIcon='search'
-	    			leftIconColor={colors.white} />
+	    			leftIcon='search'/>
 	    		<EIconButton 
 	    			icon='options-outline'
 	    			size={25}
 	    			color={colors.grey}
+	    			onPress={onPressFilter}
 	    		/>
     		</View>
     		<View style={styles.searchItems}>
@@ -168,6 +183,7 @@ const Search = () => {
 		    	 showsVerticalScrollIndicator={false}
 		    	/>
     		</View>
+    		
     	</SafeAreaView>
     );
 }
@@ -178,6 +194,7 @@ const styles = StyleSheet.create({
 	container:{
 		padding: 10,
 		paddingBottom: 0,
+		backgroundColor: colors.backgroundColor
 	},
 	searchSection:{
 		flexDirection: 'row',
