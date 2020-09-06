@@ -15,7 +15,7 @@ const ETextInput = ({
     rightIconSize = 18, 
     containerStyle, 
     placeholder, 
-    placeholderTextColor,
+    placeholderTextColor = colors.grey,
     showShadow,
     rounded,
     shadowColor = colors.grey,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: colors.lightGrey,
+    backgroundColor: colors.white,
     height: 40,
   },
   input:{
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     padding: 12,
     fontSize: 16,
     textDecorationLine: 'none',
-    color: colors.white
+    color: colors.grey
   },
   leftIcon:{
     paddingTop:10,
