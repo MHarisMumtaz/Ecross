@@ -221,6 +221,7 @@ const styles = StyleSheet.create({
 	container: {
 	    padding:0,
 	    height: windowHeight / 1.23,
+	    backgroundColor: colors.backgroundColor
 	},
 	contentContainer: {
     	paddingVertical: 10

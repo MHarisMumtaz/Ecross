@@ -4,6 +4,7 @@ import HorizontalCategories from './HorizontalCategories';
 import HorizontalBanners from './HorizontalBanners';
 import FeaturedProducts from './FeaturedProducts';
 import EFab from '../components/EFab';
+import colors from '../commons/Colors';
 
 const windowHeight = Dimensions.get('window').height;
 const wait = (timeout) => {
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     padding:0,
     height: windowHeight / 1.3,
     flex: 1,
+    backgroundColor: colors.backgroundColor
   },
   contentContainer: {
     paddingVertical: 20
