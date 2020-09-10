@@ -25,23 +25,23 @@ const data = [
 ]
 const productColors = [
 	{
-		color: 'red',
+		color: '#C2BBEA',
 		selected: false
 	},
 	{
-		color: 'yellow',
+		color: '#E5F1FF',
 		selected: false
 	},
 	{
-		color: 'brown',
+		color: '#B6EA7D',
 		selected: false
 	},
 	{
-		color: 'green',
+		color: '#FFC34D',
 		selected: false
 	},
 	{
-		color: 'blue',
+		color: '#324AB2',
 		selected: false
 	}
 ];
