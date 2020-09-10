@@ -5,10 +5,11 @@ import colors from '../commons/Colors';
 import EIconButton from '../components/EIconButton';
 import Screens from '../navigations/Screens';
 import { showModal } from '../services/modelService';
+import { PRODUCT_CARD_TYPES } from '../utils/Constants';
 
 const windowWidth = Dimensions.get('window').width;
 
-const ProductCard = ({id, title, price, imageUrl, totalRating, containerStyle, onPressProduct, onPressFavorite = (id) => {}}) => {
+const ProductCard = ({id, title, boxType = PRODUCT_CARD_TYPES.VERTICAL, price, imageUrl, description, totalRating, containerStyle, onPressProduct, onPressFavorite = (id) => {}}) => {
 
 	const [heartName, setHeartName] = useState('heart-outline');
 
@@ -30,7 +31,11 @@ const ProductCard = ({id, title, price, imageUrl, totalRating, containerStyle, o
 	}
     return (
     	<TouchableOpacity
-    		style={[styles.container,containerStyle]}
+    		style={[ 
+          boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalContainer : styles.verticalContainer,
+          styles.containerRadius,
+          styles.containerShadow,
+          containerStyle]}
     		onPress={onPress}
     	>
     		<ImageBackground 
@@ -47,34 +52,48 @@ const ProductCard = ({id, title, price, imageUrl, totalRating, containerStyle, o
 		      	androidRippleRadius={20} 
 		      />
 		    </ImageBackground>
-    		
-    		<Text style={styles.title}>{title}</Text>
-    		<View style={styles.bottomPart}>
-    			<Text style={styles.price}>{price}</Text>
-    			{ totalRating &&
-	    			<View style={styles.ratingBox}>
-	    				<Icon name="star" color={colors.golden} style={styles.starIcon}/>
-	    				<Text style={styles.ratingValue}>{totalRating}</Text>
-	    			</View>
-    			}
-    		</View>
+        <View>
+          <View style={ boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalTitleSection : {}}>
+        		<Text style={boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalTitle : styles.title}>{title}</Text>
+            {
+               boxType === PRODUCT_CARD_TYPES.HORIZONTAL && description && 
+              <Text style={boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalDescription: styles.description}>{description.substr(0, 90)}</Text>
+            }
+          </View>
+      		<View style={boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalBottom : styles.bottomPart}>
+      			<Text style={boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalPrice : styles.price}>{price}</Text>
+      			{ totalRating &&
+  	    			<View style={styles.ratingBox}>
+  	    				<Icon name="star" color={colors.golden} style={styles.starIcon}/>
+  	    				<Text style={styles.ratingValue}>{totalRating}</Text>
+  	    			</View>
+      			}
+      		</View>
+       </View>
     	</TouchableOpacity>
     );
 }
 
 export default ProductCard;
 const styles = StyleSheet.create({
-  container: {
-	width: windowWidth/2.4,
-	height:220,
-	borderRadius:10,
-	backgroundColor: colors.white,
-	elevation:10, //Android
-	shadowColor: colors.grey, // IOS
+  horizontalContainer: {
+    flexDirection: 'row',
+    backgroundColor: colors.white,
+  },
+  verticalContainer: {
+    backgroundColor: colors.white,
+  	width: windowWidth/2.4,
+  	height:220,
+  },
+  containerRadius:{
+     borderRadius:10, 
+  },
+  containerShadow:{
+    elevation:10, //Android
+    shadowColor: colors.grey, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
     shadowOpacity: 1, // IOS
     shadowRadius: 3, //IOS
-    backgroundColor: '#fff'
   },
   imageContainer: {
   	 width: windowWidth / 2.4,
@@ -88,11 +107,40 @@ const styles = StyleSheet.create({
   	borderTopLeftRadius:10,
  	  resizeMode: "contain",
   },
+  horizontalTitle:{
+    width: windowWidth/2, 
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.grey,
+    flexWrap: 'wrap',
+    padding:8,
+    paddingBottom: 0
+  },
   title: {
   	color: colors.lightBlack,
-	height:50,
-  	padding:10,
+	  height:50,
+  	padding:8,
   	paddingBottom: 0
+  },
+  horizontalDescription:{
+    fontSize: 12,
+    fontWeight: "bold",
+    width: windowWidth/2,
+    color: colors.lightGrey,
+    flexWrap: 'wrap',
+    padding:8,
+    paddingBottom: 0
+  },
+  description:{
+
+  },
+  horizontalTitleSection:{
+    flex: 1
+  },
+  horizontalPrice:{
+    fontSize: 16,
+    color: colors.primary,
+    fontWeight: 'bold'
   },
   price: {
   	padding: 8,
@@ -102,6 +150,11 @@ const styles = StyleSheet.create({
   bottomPart: {
   	flexDirection: 'row',
   	justifyContent: 'space-between'
+  },
+  horizontalBottom:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10
   },
   ratingBox: { 
   	flexDirection:'row',
