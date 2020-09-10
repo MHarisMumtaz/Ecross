@@ -154,7 +154,7 @@ const Search = () => {
 
     return (
     	<SafeAreaView style={styles.container}>
-    		<EModal isShow={isShowFilter} onBackdropPress={onCloseFilter}>
+    		<EModal isShow={isShowFilter} onBackdropPress={onCloseFilter} containerStyle={styles.filter}>
     			<SearchFilters />
     		</EModal>
     		<View style={styles.searchSection}>
@@ -206,5 +206,8 @@ const styles = StyleSheet.create({
 	},
 	productBox:{
 		padding: 10
+	},
+	filter:{
+		height: 600
 	}
 })

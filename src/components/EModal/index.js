@@ -28,6 +28,6 @@ export default EModal;
 const styles = StyleSheet.create({
   container: {
   	backgroundColor: colors.white,
-  	height: 200
+  	height: windowHeight
   }
 });
