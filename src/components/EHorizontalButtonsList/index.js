@@ -4,7 +4,7 @@ import colors, { ColorsCollection } from '../../commons/Colors';
 import EImageButton from '../EImageButton';
 import EIconButton from '../EIconButton';
 
-const EHorizontalButtonList = ({showSeeAllBtn, data, btnContainerStyle, showBgColor, imageStyle, imageWidth, imageHeight, onPressSeeAll = () => {}}) => {
+const EHorizontalButtonList = ({showSeeAllBtn, data, btnContainerStyle, showBgColor, imageStyle, imageWidth, imageHeight, onPressItem = () => {}, onPressSeeAll = () => {}}) => {
 
 	renderItem = ({item, index}) => {
 		return (
@@ -25,7 +25,9 @@ const EHorizontalButtonList = ({showSeeAllBtn, data, btnContainerStyle, showBgCo
 						containerStyle={[
 							btnContainerStyle ? btnContainerStyle : styles.roundBtn,
 							{ backgroundColor: showBgColor ? ColorsCollection[index] : 'transparent' }
-						]}/>
+						]}
+						onPress={onPressItem}
+						/>
 				}
 				<Text style={styles.title}>{ item.id=='seeAll' ? item.text : item.title}</Text>
 			</View>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { StyleSheet, SafeAreaView, FlatList, View, Text } from 'react-native';
 import EHorizontalButtonsList from '../components/EHorizontalButtonsList';
+import Screens from '../navigations/Screens';
+import { showModal } from '../services/modelService';
 
 const DATA = [
 	{
@@ -35,18 +37,22 @@ const DATA = [
 	}
 ]
 
-class HorizontalCategories extends Component {
-	render() {
-	    return (
-	    	<View style={styles.container}>
-	    		<EHorizontalButtonsList 
-	    			showSeeAllBtn={true} 
-	    			showBgColor={true}
-	    			data={DATA}
-	    		/>
-	    	</View>
-	    );
+const HorizontalCategories = () => {
+
+	const onPressItem = () => {
+		showModal(Screens.ProductList);
 	}
+
+    return (
+    	<View style={styles.container}>
+    		<EHorizontalButtonsList 
+    			showSeeAllBtn={true} 
+    			showBgColor={true}
+    			data={DATA}
+    			onPressItem={onPressItem}
+    		/>
+    	</View>
+    );
 }
 
 export default HorizontalCategories;

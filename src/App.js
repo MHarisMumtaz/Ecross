@@ -13,24 +13,7 @@ import colors from './commons/Colors';
 
 const setDefaultOptions = () => {
 	Navigation.setDefaultOptions({
-	  topBar,
-	   fab: {
-            id: 'fab',
-            visible: true,
-            backgroundColor: '#000000',
-            clickColor: '#ffffff',
-            rippleColor: '#000000',
-            iconColor: '#ffffff',
-            alignVertically: 'bottom',
-            alignHorizontally: 'right',
-            actions: [{
-                id: 'test',
-                backgroundColor: '#000000',
-            }, {
-                id: 'test2',
-                backgroundColor: '#ffffff',
-            }],
-        },
+	  topBar
 	});
 }
 
