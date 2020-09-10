@@ -6,7 +6,15 @@ const DEFAULT_OPTION = {
 	    leftButtons: {
 	      id: MODAL_DISMISS_BUTTON_ID,
 	      icon: require('../../assets/arrow-left.png')
-	    }
+	    },
+	    subtitle: {
+	    	text: 'lajsdjasd'
+	    },
+	    title: {
+	    	text: 'Categories',
+	    	alignment: 'center',
+	    	color: 'Black'
+	    },
   	},
 }
 

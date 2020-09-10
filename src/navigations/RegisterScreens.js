@@ -8,6 +8,7 @@ import Search from '../screens/Search';
 import WishList from '../screens/WishList';
 import ProductCard from '../screens/ProductCard';
 import ProductDetails from '../screens/ProductDetails';
+import ProductList from '../screens/ProductList';
 
 import EImageButton from '../components/EImageButton';
 import EMenuButton from '../components/EMenuButton';
@@ -23,6 +24,7 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.Search, () => Search);
   Navigation.registerComponent(Screens.WishList, () => WishList);
   Navigation.registerComponent(Screens.ProductDetails, () => ProductDetails);
+  Navigation.registerComponent(Screens.ProductList, () => ProductList);
 }
 
 export { registerScreens };

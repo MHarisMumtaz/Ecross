@@ -12,7 +12,8 @@ const Screens = {
   HorizontalBanners: 'HorizontalBanners',
   ProductCard: 'ProductCard',
   ProductDetails: 'ProductDetails',
-  FeaturedProducts: 'FeaturedProducts'
+  FeaturedProducts: 'FeaturedProducts',
+  ProductList: 'ProductList'
 }
 
 export default Screens;
