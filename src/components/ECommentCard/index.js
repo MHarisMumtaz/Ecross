@@ -33,16 +33,7 @@ export default ECommentCard;
 const styles = StyleSheet.create({
   card:{
     flex: 1,
-    padding: 8,
-    borderRadius: 20,
-    borderStyle: 'solid',
-    borderColor: 'black',
-    elevation: 5,
-    shadowColor: colors.grey, // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 3, //IOS
-    backgroundColor: colors.white
+    padding: 8
   },
   bodyText: {
     color: colors.grey
