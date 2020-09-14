@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
-const EImageButton = ({ containerStyle, imageStyle, opacity=0.3, imageWidth, imageHeight, src, onPress = () => {}}) => {
+const EImageButton = ({ containerStyle, text, imageStyle, opacity=0.3, imageWidth, imageHeight, src, onPress = () => {}}) => {
 
   return (
     <TouchableOpacity
@@ -17,6 +17,7 @@ const EImageButton = ({ containerStyle, imageStyle, opacity=0.3, imageWidth, ima
         }, imageStyle]} 
         source={src} 
       />
+      {text && <Text style={styles.text}> { text }</Text>}
     </TouchableOpacity>
   )
 }
@@ -27,5 +28,8 @@ const styles = StyleSheet.create({
     width: 100,
     height:30,
     alignItems: "center"
+  },
+  text:{
+    
   }
 });

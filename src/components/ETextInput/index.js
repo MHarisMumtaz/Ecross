@@ -32,7 +32,7 @@ const ETextInput = ({
         elevation: 4,
         shadowColor: shadowColor ? shadowColor : colors.grey, // IOS
         shadowOffset: { height: 1, width: 1 }, // IOS
-        shadowOpacity: 1, // IOS
+        shadowOpacity: 0.3, // IOS
         shadowRadius: 3, //IOS
      }, rounded && {
        borderRadius: 30,
