@@ -5,6 +5,7 @@ import colors from '../commons/Colors';
 
 import ProductCard from './ProductCard';
 import EIconButton from '../components/EIconButton';
+import ETextButton from '../components/ETextButton';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -194,6 +195,14 @@ const WishList = () => {
 		    	 showsVerticalScrollIndicator={false}
 		    	/>
 	    	</SafeAreaView>
+	    	<View style={styles.footer}>
+	    		<ETextButton
+	    			rounded
+	    			containerStyle={styles.cartButton}
+	    			text='Add to cart'
+	    			rightIcon='cart'
+	    		/>
+	        </View>
 		</View>
     );
 }
@@ -201,18 +210,18 @@ const WishList = () => {
 export default WishList;
 const styles = StyleSheet.create({
   container: {
-  	paddingTop:50,
     padding:10,
     flex: 1,
     backgroundColor: colors.backgroundColor
   },
   listContainer:{
-  	flex: 1
+  	flex: 1,
   },
   header:{
   	flexDirection : 'row',
   	justifyContent: 'space-between',
-  	paddingLeft: 10
+  	paddingLeft: 10,
+  	paddingBottom: 10
   },
   listStyleButton: {
   	color: colors.grey
@@ -226,4 +235,11 @@ const styles = StyleSheet.create({
   productBox:{
 	padding: 10
   },
+  footer:{
+  	alignItems: 'center',
+  	paddingTop: 5
+  },
+  cartButton:{
+  	width: 200
+  }
 });

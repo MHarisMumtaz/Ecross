@@ -201,12 +201,16 @@ const ProductDetails = ({}) => {
 	        </ScrollView>
         </View>
         <View style={styles.footer}>
-    		<ETextButton containerStyle={styles.favoriteButton}>
-    			<Text style={styles.favoriteButtonText}>Add to Favorite <Icon name='heart' size={18}/></Text>
-    		</ETextButton>
-    		<ETextButton containerStyle={styles.buyButton}>
-    			<Text style={styles.buyButtonText}>Buy now <Icon name='cart' size={18}/></Text>
-    		</ETextButton>
+    		<ETextButton 
+    			containerStyle={styles.favoriteButton}
+    			text='Add to Favorite'
+    			rightIcon={'heart'}
+    		/>
+    		<ETextButton 
+    			containerStyle={styles.buyButton}
+    			text='Buy Now' 
+    			rightIcon={'cart'}
+    		/>
         </View>
       </SafeAreaView>
     );
@@ -281,18 +285,8 @@ const styles = StyleSheet.create({
 		justifyContent:'space-between'
 	},
 	favoriteButton:{
-		flex:1, 
+		flex:1,
 		backgroundColor: colors.lightGrey
-	},
-	favoriteButtonText:{
-		fontSize: 16, 
-		textAlign: 'center', 
-		color: colors.white
-	},
-	buyButtonText:{
-		fontSize: 16, 
-		textAlign: 'center', 
-		color: colors.white
 	},
 	buyButton:{
 		flex:1,

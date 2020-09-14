@@ -44,7 +44,7 @@ const HorizontalCategories = () => {
 	}
 
 	const onPressSeeAll = () => {
-		showModal(Screens.AllBoxCategories);
+		showModal(Screens.AllCategoriesList);
 	}
 
     return (
