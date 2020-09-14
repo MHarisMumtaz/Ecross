@@ -1,8 +1,18 @@
 import React from 'react';
 import { Platform, StyleSheet, Pressable, TouchableOpacity, View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../../commons/Colors';
 
-const ETextButton = ({children, androidRippleColor, androidRippleRadius, containerStyle, onPress = () => {}}) => {
+const ETextButton = ({
+    rounded,
+    text, 
+    leftIcon,
+    leftIconColor = colors.white,
+    leftIconSize = 18, 
+    rightIcon,
+    rightIconColor = colors.white,
+    rightIconSize = 18,
+    androidRippleColor, androidRippleRadius, containerStyle, onPress = () => {}}) => {
 
   const iosButton = () => {
     return (
@@ -17,7 +27,9 @@ const ETextButton = ({children, androidRippleColor, androidRippleRadius, contain
           }
         ]}
        >
-          {children}
+        {leftIcon && <Icon style={styles.leftIcon} name={leftIcon} size={leftIconSize} color={leftIconColor} /> }
+        <Text style={styles.text}>{text}</Text>
+        {rightIcon && <Icon style={styles.rightIcon} name={rightIcon} size={rightIconSize} color={rightIconColor} />}
        </TouchableOpacity>
      )
   }
@@ -30,7 +42,8 @@ const ETextButton = ({children, androidRippleColor, androidRippleRadius, contain
           containerStyle,
           {
             width: (containerStyle && containerStyle.width) ? containerStyle.width : 100,
-            height: (containerStyle && containerStyle.height) ? containerStyle.height : 50
+            height: (containerStyle && containerStyle.height) ? containerStyle.height : 50,
+            borderRadius: rounded ? 30 : 0
           }
         ]} 
         onPress={onPress} 
@@ -38,7 +51,9 @@ const ETextButton = ({children, androidRippleColor, androidRippleRadius, contain
           color: androidRippleColor ? androidRippleColor : colors.grey,
           radius: androidRippleRadius ? androidRippleRadius : 16
         }}>
-          {children}
+          {leftIcon && <Icon style={styles.leftIcon} name={leftIcon} size={leftIconSize} color={leftIconColor} /> }
+          <Text style={styles.text}>{text}</Text>
+          {rightIcon && <Icon style={styles.rightIcon} name={rightIcon} size={rightIconSize} color={rightIconColor} />}
       </Pressable>
     )
   }
@@ -51,11 +66,22 @@ export default ETextButton;
 
 const styles = StyleSheet.create({
   container: {
+     flexDirection: 'row',
      justifyContent: 'center',
+     padding: 10,
      backgroundColor: colors.primary
   },
   text:{
+    fontSize: 16,
     textAlign: 'center',
     color: colors.white
+  },
+  leftIcon:{
+    top: 1,
+    right: 10
+  },
+  rightIcon:{
+    top: 1,
+    left: 10
   }
 });

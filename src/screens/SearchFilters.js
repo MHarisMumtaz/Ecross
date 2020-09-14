@@ -167,9 +167,11 @@ const SearchFilters = ({ categories }) => {
 				<ESelectableList collection={sizeCollection} buttonStyle={styles.sizeButton} onPress={(item,i)=> onPressSize(item,i)} />
 			</View>
 			<View style={{alignSelf: 'flex-end',flex: 1}}>
-				<ETextButton containerStyle={styles.saveButton}>
-					<Text style={styles.save}>Save</Text>
-				</ETextButton>
+				<ETextButton
+					rounded
+					containerStyle={styles.saveButton}
+					text='Apply Filters'
+					/>
 			</View>
 		</View>
     );
@@ -235,6 +237,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	saveButton:{
+		width: 150,
 		borderRadius: 30
 	},
 	save:{
