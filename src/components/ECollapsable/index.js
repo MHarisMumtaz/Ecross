@@ -11,7 +11,7 @@ const ECollapsable = ({containerStyle, nonExpandedIcon = 'arrow-forward-outline'
   }
 
   const toggleExpand = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
     setExpanded(!expanded);
   }
 
@@ -34,7 +34,6 @@ const ECollapsable = ({containerStyle, nonExpandedIcon = 'arrow-forward-outline'
                         {item.icon && <Icon name={item.icon} size={item.iconSize} color={item.iconColor} />}
                         <Text style={[styles.childText]} >{item.name}</Text>
                     </TouchableOpacity>
-                    <View style={styles.childHr}/>
                 </View>))
            }
           </View>
@@ -58,69 +57,37 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 16
   },
-  row:{
-    flexDirection: 'row',
-    justifyContent:'space-between',
-    height:56,
-    paddingLeft:25,
-    paddingRight:18,
-    alignItems:'center',
-    backgroundColor: colors.grey,
-  },
   parentHr:{
     height:1,
     color: colors.white,
     width:'100%'
   },
-    title:{
-        fontSize: 14,
-        fontWeight:'bold',
-        color: colors.grey,
-    },
-    itemActive:{
-        fontSize: 12,
-        color: colors.primary,
-    },
-    btnActive:{
-        borderColor: colors.primary,
-    },
-    btnInActive:{
-        borderColor: colors.grey,
-    },
-    row:{
-        flexDirection: 'row',
-        justifyContent:'space-between',
-        height:56,
-        paddingLeft:25,
-        paddingRight:18,
-        alignItems:'center',
-        backgroundColor: colors.lightGrey,
-    },
-    childRow:{
-        flexDirection: 'row',
-        justifyContent:'space-between',
-        backgroundColor: colors.lightGrey,
-        borderBottomColor: colors.white,
-        borderBottomWidth: 1,
-        width:'100%',
-        height:45,
-        alignItems:'center',
-        paddingLeft:45,
-    },
-    parentHr:{
-        height:1,
-        color: colors.white,
-        width:'100%'
-    },
-    childHr:{
-        height:1,
-        backgroundColor: colors.lightGrey,
-        width:'100%',
-    },
-    colorActive:{
-        borderColor: colors.primary,
-    },
-    colorInActive:{
-        borderColor: colors.grey,
-    }
+  itemActive:{
+      fontSize: 12,
+      color: colors.primary,
+  },
+  btnActive:{
+      borderColor: colors.primary,
+  },
+  btnInActive:{
+      borderColor: colors.grey,
+  },
+  row:{
+      flexDirection: 'row',
+      justifyContent:'space-between',
+      height:56,
+      paddingLeft:25,
+      paddingRight:18,
+      alignItems:'center',
+      backgroundColor: colors.lightGrey,
+  },
+  childRow:{
+      flexDirection: 'row',
+      justifyContent:'space-between',
+      backgroundColor: colors.lightGrey,
+      width:'100%',
+      height:45,
+      alignItems:'center',
+      paddingLeft:65,
+  }
 });

@@ -184,7 +184,7 @@ const WishList = () => {
     return (
     	<View style={styles.container}>
     		<View style={styles.header}>
-    			<Text style={styles.category}>WishList</Text>
+    			<Text style={styles.screenTitle}>WishList</Text>
     		</View>
     		<SafeAreaView style={styles.listContainer}>
 				<FlatList
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   listStyleButton: {
   	color: colors.grey
   },
-  category:{
+  screenTitle:{
   	fontSize: 18,
   	fontWeight: 'bold',
   	color: colors.grey,
