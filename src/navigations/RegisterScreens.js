@@ -3,7 +3,7 @@ import { Navigation } from 'react-native-navigation';
 import Screens from './Screens';
 
 import Home from '../screens/Home';
-import LeftSideMenu from '../screens/LeftSideMenu';
+import SideMenu from '../screens/SideMenu';
 import Search from '../screens/Search';
 import WishList from '../screens/WishList';
 import ProductCard from '../screens/ProductCard';
@@ -22,7 +22,7 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.EIconButton, () => EIconButton);
   Navigation.registerComponent(Screens.EMenuButton, () => EMenuButton);
 
-  Navigation.registerComponent(Screens.LeftSideMenu, () => LeftSideMenu);
+  Navigation.registerComponent(Screens.SideMenu, () => SideMenu);
   Navigation.registerComponent(Screens.Search, () => Search);
   Navigation.registerComponent(Screens.WishList, () => WishList);
   Navigation.registerComponent(Screens.ProductDetails, () => ProductDetails);

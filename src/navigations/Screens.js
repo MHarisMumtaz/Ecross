@@ -5,13 +5,13 @@ const Screens = {
   EImageButton: 'EImageButton',
   EHorizontalButtonsList: 'EHorizontalButtonsList',
 
-  LeftSideMenu: 'LeftSideMenu',
+  SideMenu: 'SideMenu',
   Search: 'Search',
   WishList: 'WishList',
   HorizontalCategories: 'HorizontalCategories',
   AllCategoriesList: 'AllCategoriesList',
   AllBoxCategories: 'AllBoxCategories',
-  
+
   HorizontalBanners: 'HorizontalBanners',
   ProductCard: 'ProductCard',
   ProductDetails: 'ProductDetails',

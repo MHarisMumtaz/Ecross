@@ -24,7 +24,7 @@ const setRoot = () => {
 		        id: SIDE_MENU_ID,
 		        left: {
 		        	component: {
-			            name: "LeftSideMenu"
+			            name: "SideMenu"
 			        }
 		        },
 		        center: {
@@ -43,8 +43,8 @@ const setRoot = () => {
 						        options : {
 						        	bottomTab : {
 						        		icon: require("../assets/home48.png"),
-						        		iconColor: colors.primary,
-						        		selectedIconColor: colors.secondary,
+						        		iconColor: colors.secondary,
+						        		selectedIconColor: colors.primary,
 						        		fontSize:10,
 						        		iconInsets: { top: 15 }
 						        	}
@@ -57,8 +57,8 @@ const setRoot = () => {
 					            options: {
 					              bottomTab: {
 					                icon: require("../assets/search48.png"),
-					                iconColor:colors.primary,
-					                selectedIconColor: colors.secondary,
+					                iconColor:colors.secondary,
+					                selectedIconColor: colors.primary,
 					                iconInsets: { top: 15 }
 					              },
 					            },
@@ -71,8 +71,8 @@ const setRoot = () => {
 					            options: {
 					              bottomTab: {
 					                icon: require("../assets/heart48.png"),
-					                iconColor:colors.primary,
-					                selectedIconColor: colors.secondary,
+					                iconColor:colors.secondary,
+					                selectedIconColor: colors.primary,
 					                iconInsets: { top: 15 }
 					              },
 					            },

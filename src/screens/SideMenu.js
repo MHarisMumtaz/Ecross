@@ -71,7 +71,7 @@ const sideMenuData = [
   }
 ]
 
-const LeftSideMenu = () => {
+const SideMenu = () => {
 
   const pushAndClose = () => {
     Navigation.push('SideMenuCenter', {
@@ -128,16 +128,13 @@ const LeftSideMenu = () => {
                  <Text style={styles.email}>demo@gmail.com</Text>
                </View>
             </View>
-             <ETextButton containerStyle={styles.loginButton}>
-               <Text style={styles.loginText}>Login <Icon name='arrow-forward-outline' size={16} /></Text>
-             </ETextButton>
           </View>
           { renderMenuOptions() }
       </ScrollView>
     </SafeAreaView>
   );
 };
-export default LeftSideMenu;
+export default SideMenu;
 
 const styles = StyleSheet.create({
   parentCatgeory:{
