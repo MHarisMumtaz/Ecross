@@ -9,9 +9,9 @@ import { PRODUCT_CARD_TYPES } from '../utils/Constants';
 
 const windowWidth = Dimensions.get('window').width;
 
-const ProductCard = ({id, title, boxType = PRODUCT_CARD_TYPES.VERTICAL, price, imageUrl, description, totalRating, containerStyle, onPressProduct, onPressFavorite = (id) => {}}) => {
+const ProductCard = ({id, title, favorite, boxType = PRODUCT_CARD_TYPES.VERTICAL, price, imageUrl, description, totalRating, containerStyle, onPressProduct, onPressFavorite = (id) => {}}) => {
 
-	const [heartName, setHeartName] = useState('heart-outline');
+	const [heartName, setHeartName] = useState(favorite ? 'heart' : 'heart-outline');
 
 	const onPressHeart = () => {
 		if(heartName==='heart-outline'){

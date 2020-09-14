@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   	shadowColor: colors.grey, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
     shadowOpacity: 0.6, // IOS
-    shadowRadius: 10, //IOS
+    shadowRadius: 6, //IOS
   },
   categoryTitle:{
   	top: 14,
