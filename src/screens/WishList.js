@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, FlatList, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, SafeAreaView, FlatList, View, Text, Dimensions, Platform } from 'react-native';
 import { PRODUCT_CARD_TYPES, LIST_STYLE_TYPE_ICON } from '../utils/Constants';
 import colors from '../commons/Colors';
 
@@ -182,8 +182,8 @@ const WishList = () => {
     }
 
     return (
-    	<View style={styles.container}>
-    		<View style={styles.header}>
+    	<View style={[styles.container,  Platform.OS === 'ios' ? styles.padTop : {}]}>
+    		<View style={[styles.header, Platform.OS === 'ios' ? styles.padBottom : {} ]}>
     			<Text style={styles.screenTitle}>WishList</Text>
     		</View>
     		<SafeAreaView style={styles.listContainer}>
@@ -214,8 +214,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.backgroundColor
   },
+  padTop:{
+  	paddingTop: 40
+  },
   listContainer:{
   	flex: 1,
+  },
+  padBottom:{
+  	paddingBottom: 10
   },
   header:{
   	flexDirection : 'row',
