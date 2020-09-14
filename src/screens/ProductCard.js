@@ -29,7 +29,8 @@ const ProductCard = ({id, title, boxType = PRODUCT_CARD_TYPES.VERTICAL, price, i
 			showModal(Screens.ProductDetails);
 		}
 	}
-    return (
+
+  return (
     	<TouchableOpacity
     		style={[ 
           boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalContainer : styles.verticalContainer,
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     elevation:10, //Android
     shadowColor: colors.grey, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
+    shadowOpacity: 0.3, // IOS
     shadowRadius: 3, //IOS
   },
   imageContainer: {
@@ -117,7 +118,10 @@ const styles = StyleSheet.create({
     paddingBottom: 0
   },
   title: {
-  	color: colors.lightBlack,
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  	color: colors.grey,
 	  height:50,
   	padding:8,
   	paddingBottom: 0
@@ -138,14 +142,15 @@ const styles = StyleSheet.create({
     flex: 1
   },
   horizontalPrice:{
-    fontSize: 16,
+    fontSize: 18,
     color: colors.primary,
     fontWeight: 'bold'
   },
   price: {
-  	padding: 8,
+    fontSize: 18,
+    color: colors.primary,
+    paddingLeft: 5,
   	fontWeight:'bold',
-  	fontSize:14
   },
   bottomPart: {
   	flexDirection: 'row',

@@ -9,6 +9,9 @@ const Screens = {
   Search: 'Search',
   WishList: 'WishList',
   HorizontalCategories: 'HorizontalCategories',
+  AllCategoriesList: 'AllCategoriesList',
+  AllBoxCategories: 'AllBoxCategories',
+  
   HorizontalBanners: 'HorizontalBanners',
   ProductCard: 'ProductCard',
   ProductDetails: 'ProductDetails',

@@ -8,3 +8,7 @@ export const PRODUCT_CARD_TYPES = {
 	HORIZONTAL:'HORIZONTAL',
 	VERTICAL: 'VERTICAL'
 }
+export const LIST_STYLE_TYPE_ICON = {
+	GRID: 'grid-sharp',
+	LIST: 'list-sharp'
+}
