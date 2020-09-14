@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, SafeAreaView, FlatList, View, Text, Dimensions } from 'react-native';
-import EHorizontalButtonsList from '../components/EHorizontalButtonsList';
+import EButtonsList from '../components/EButtonsList';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -10,6 +10,7 @@ const DATA = [
 		id: '21',
 		title: '',
 		src: 'https://picsum.photos/300/200',
+		text: 'asda'
 	},
 	{
 		id: '31',
@@ -22,7 +23,7 @@ class HorizontalBanners extends Component {
 	render() {
 	    return (
 	    	<View style={styles.container}>
-	    		<EHorizontalButtonsList 
+	    		<EButtonsList 
 	    			data={DATA} 
 	    			btnContainerStyle={styles.banner} 
 	    			imageStyle={styles.imageStyle} 

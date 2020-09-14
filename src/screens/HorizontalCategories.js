@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, SafeAreaView, FlatList, View, Text } from 'react-native';
-import EHorizontalButtonsList from '../components/EHorizontalButtonsList';
+import EButtonsList from '../components/EButtonsList';
 import Screens from '../navigations/Screens';
 import { showModal } from '../services/modelService';
 
@@ -43,13 +43,18 @@ const HorizontalCategories = () => {
 		showModal(Screens.ProductList);
 	}
 
+	const onPressSeeAll = () => {
+		showModal(Screens.AllBoxCategories);
+	}
+
     return (
     	<View style={styles.container}>
-    		<EHorizontalButtonsList 
+    		<EButtonsList 
     			showSeeAllBtn={true} 
     			showBgColor={true}
     			data={DATA}
     			onPressItem={onPressItem}
+    			onPressSeeAll={onPressSeeAll}
     		/>
     	</View>
     );
@@ -59,5 +64,8 @@ export default HorizontalCategories;
 const styles = StyleSheet.create({
   container: {
     padding:10
+  },
+  category:{
+
   }
 });
