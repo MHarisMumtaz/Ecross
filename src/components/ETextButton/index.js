@@ -49,8 +49,8 @@ const ETextButton = ({
         ]} 
         onPress={onPress} 
         android_ripple={{
-          color: androidRippleColor ? androidRippleColor : colors.grey,
-          radius: androidRippleRadius ? androidRippleRadius : 16
+          color: androidRippleColor ? androidRippleColor : colors.lightGrey,
+          radius: androidRippleRadius ? androidRippleRadius : 80
         }}>
           {leftIcon && <Icon style={styles.leftIcon} name={leftIcon} size={leftIconSize} color={leftIconColor} /> }
           <Text style={styles.text}>{text}</Text>

@@ -84,16 +84,16 @@ const styles = StyleSheet.create({
   verticalContainer: {
     backgroundColor: colors.white,
   	width: windowWidth/2.4,
-  	height:220,
+  	height:240,
   },
   containerRadius:{
      borderRadius:10, 
   },
   containerShadow:{
     elevation:10, //Android
-    shadowColor: colors.grey, // IOS
+    shadowColor: colors.lightBlack, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 0.3, // IOS
+    shadowOpacity: 0.2, // IOS
     shadowRadius: 3, //IOS
   },
   imageContainer: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     paddingBottom: 0
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
   	color: colors.grey,
@@ -151,10 +151,9 @@ const styles = StyleSheet.create({
     color: colors.primary,
     paddingLeft: 5,
   	fontWeight:'bold',
+    textAlign: 'center'
   },
   bottomPart: {
-  	flexDirection: 'row',
-  	justifyContent: 'space-between'
   },
   horizontalBottom:{
     flexDirection: 'row',
@@ -164,12 +163,12 @@ const styles = StyleSheet.create({
   ratingBox: { 
   	flexDirection:'row',
   	justifyContent:'space-around',
-  	marginRight:5,
+  	marginLeft:5,
   	padding:3,
   	width:45,
   	height:23, 
   	borderRadius:30,
-  	backgroundColor:colors.primary
+  	backgroundColor:colors.grey
   },
   ratingValue: {
   	color:colors.white,

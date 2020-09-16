@@ -159,8 +159,16 @@ const ProductDetails = ({}) => {
 			        	/>
 			        </View>
 		        </View>
-	        	<ESelectableList collection={colorCollection} onPress={(item,i)=> onPressColor(item,i)} />
-	        	<ESelectableList collection={sizeCollection} buttonStyle={styles.sizeButton} onPress={(item,i)=> onPressSize(item,i)} />
+	        	<ESelectableList 
+	        		collection={colorCollection} 
+	        		onPress={(item,i)=> onPressColor(item,i)} 
+	        	/>
+	        	<ESelectableList 
+	        		collection={sizeCollection} 
+	        		buttonStyle={styles.sizeButton} 
+	        		textStyle={styles.sizeText}
+	        		onPress={(item,i)=> onPressSize(item,i)} 
+	        	/>
 	        	<SegmentedControl
 				    values={['Details', 'Reviews']}
 				    tintColor={colors.primary}
@@ -245,6 +253,7 @@ const styles = StyleSheet.create({
 		fontSize:22,
 		maxWidth: 300,
 		fontWeight: 'bold',
+		color: colors.grey
 	},
 	productPrice: {
 		fontSize: 18,
@@ -263,9 +272,15 @@ const styles = StyleSheet.create({
 		color: colors.secondary
 	},
 	sizeButton: {
-		width: 35,
-		height: 35,
+		width: 37,
+		height: 37,
 		elevation: 5
+	},
+	sizeText:{
+		fontSize: 12,
+		fontWeight: 'bold',
+		textAlign: 'center',
+		color: colors.grey
 	},
 	descriptionHeading:{
 		fontSize: 18,

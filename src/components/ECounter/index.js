@@ -34,16 +34,17 @@ export default ECounter;
 
 const styles = StyleSheet.create({
   container:{
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: colors.white,
   },
   removeButton:{
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.grey,
     width: 30,
     height: 30,
     padding: 5,
-    elevation: 6,
+    elevation: 10,
     shadowColor: colors.grey, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
     shadowOpacity: 1, // IOS
@@ -52,11 +53,11 @@ const styles = StyleSheet.create({
   addButton: {
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.grey,
     width: 30,
     height: 30,
     padding: 5,
-    elevation: 6,
+    elevation: 10,
     shadowColor: colors.grey, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
     shadowOpacity: 1, // IOS
@@ -66,6 +67,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 10,
     marginRight: 10,
-    color: colors.secondary,
+    color: colors.grey,
   }
 });

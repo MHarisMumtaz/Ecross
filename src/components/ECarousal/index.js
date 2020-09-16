@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   bullets: {
     position: 'absolute',
-    top: 250,
+    top: 200,
     right: 0,
     display: 'flex',
     justifyContent: 'flex-start',
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     flexBasis: '100%',
     resizeMode: "contain",
     maxWidth: '100%',
-    height: 300,
+    height: 250,
   }
 });
 

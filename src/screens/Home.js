@@ -27,7 +27,8 @@ const Home = (props) => {
     	<SafeAreaView style={styles.container}>
 	    	<ScrollView 
 	    		contentContainerStyle={styles.contentContainer} 
-	    		fadingEdgeLength={100}
+	    		fadingEdgeLength={200}
+          showsVerticalScrollIndicator={false}
 	    		refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       		>
 	    		<HorizontalCategories {...props} />

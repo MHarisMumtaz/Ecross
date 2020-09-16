@@ -36,8 +36,8 @@ const EIconButton = ({icon, size = 20, color = 'black', onPress = () => {}, styl
         ]} 
         onPress={onPress} 
         android_ripple={{
-          color: androidRippleColor ? androidRippleColor : colors.grey,
-          radius: androidRippleRadius ? androidRippleRadius : 16
+          color: androidRippleColor ? androidRippleColor : colors.lightGrey,
+          radius: androidRippleRadius ? androidRippleRadius : 12,
         }}>
           <Icon name={icon} size={size} color={color} />
       </Pressable>
