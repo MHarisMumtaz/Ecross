@@ -59,4 +59,16 @@ const topBar = {
 	rightButtons: topBarRightButtons,
 	backButton: topBarBackButton
 };
-export { topBar };
+
+const sideMenu = {
+    openGestureMode: 'bezel',
+    left: {
+        visible: false,
+        enabled: true
+    },
+    right: {
+        visible: false,
+        enabled: false
+    }
+}
+export { topBar, sideMenu };

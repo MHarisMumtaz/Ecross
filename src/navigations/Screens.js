@@ -16,7 +16,9 @@ const Screens = {
   ProductCard: 'ProductCard',
   ProductDetails: 'ProductDetails',
   FeaturedProducts: 'FeaturedProducts',
-  ProductList: 'ProductList'
+  ProductList: 'ProductList',
+
+  Notifications: 'Notifications'
 }
 
 export default Screens;
