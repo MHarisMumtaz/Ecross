@@ -3,7 +3,7 @@ import { Platform, SafeAreaView, StyleSheet, TouchableOpacity, Pressable, FlatLi
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../../commons/Colors';
 
-const ECollapsable = ({containerStyle, nonExpandedIcon = 'arrow-forward-outline', expandedIcon = 'arrow-down-outline', expandedIconColor=colors.primary, name, icon, iconSize = 20, iconColor = colors.primary, data, childComponent}) => {
+const ECollapsable = ({containerStyle, nonExpandedIcon = 'chevron-forward', expandedIcon = 'chevron-down', expandedIconColor=colors.primary, name, icon, iconSize = 20, iconColor = colors.primary, data, childComponent}) => {
 
   const [expanded, setExpanded] = useState(false);
   if (Platform.OS === 'android') {
