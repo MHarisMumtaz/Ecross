@@ -1,6 +1,6 @@
 import { registerScreens } from './navigations/RegisterScreens';
 import { registerEvents } from './navigations/RegisterEvents';
-import { topBar } from './navigations/DefaultOptions';
+import { topBar, sideMenu } from './navigations/DefaultOptions';
 import { Navigation } from 'react-native-navigation';
 
 import {
@@ -13,7 +13,8 @@ import colors from './commons/Colors';
 
 const setDefaultOptions = () => {
 	Navigation.setDefaultOptions({
-	  topBar
+	  topBar,
+	  sideMenu
 	});
 }
 
@@ -44,9 +45,12 @@ const setRoot = () => {
 						        	bottomTab : {
 						        		icon: require("../assets/home48.png"),
 						        		iconColor: colors.secondary,
+						        		textColor: colors.secondary,
 						        		selectedIconColor: colors.primary,
+						        		selectedTextColor: colors.primary,
 						        		fontSize:10,
-						        		iconInsets: { top: 15 }
+						        		text: 'Home',
+						        		iconInsets: { top: 15, bottom: 10 }
 						        	}
 						        }
 				        	}
@@ -58,8 +62,11 @@ const setRoot = () => {
 					              bottomTab: {
 					                icon: require("../assets/search48.png"),
 					                iconColor:colors.secondary,
+					                textColor: colors.secondary,
+					                text: 'Search',
 					                selectedIconColor: colors.primary,
-					                iconInsets: { top: 15 }
+					                selectedTextColor: colors.primary,
+					                iconInsets: { top: 15, bottom: 10 }
 					              },
 					            },
 					         },
@@ -72,8 +79,29 @@ const setRoot = () => {
 					              bottomTab: {
 					                icon: require("../assets/heart48.png"),
 					                iconColor:colors.secondary,
+					                textColor: colors.secondary,
+					                text: 'WishList',
 					                selectedIconColor: colors.primary,
-					                iconInsets: { top: 15 }
+					                selectedTextColor: colors.primary,
+					                iconInsets: { top: 15, bottom: 10 }
+					              },
+					            },
+					         },
+			            },
+			            {
+			            	component: {
+					            id: 'Notifications',
+					            name: 'Notifications',
+					            options: {
+					              bottomTab: {
+					                icon: require("../assets/notification48.png"),
+					                iconColor:colors.secondary,
+					                textColor: colors.secondary,
+					                selectedIconColor: colors.primary,
+					                selectedTextColor: colors.primary,
+					                text: 'Notification',
+					                iconInsets: { top: 15, bottom: 10 },
+					                badge: '2'
 					              },
 					            },
 					         },
