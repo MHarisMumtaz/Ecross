@@ -32,7 +32,7 @@ const ProductCard = ({id, title, favorite, boxType = PRODUCT_CARD_TYPES.VERTICAL
 
   return (
     	<TouchableOpacity
-    		style={[ 
+    		style={[
           boxType === PRODUCT_CARD_TYPES.HORIZONTAL ? styles.horizontalContainer : styles.verticalContainer,
           styles.containerRadius,
           styles.containerShadow,
@@ -148,10 +148,11 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 18,
-    color: colors.primary,
+    color: colors.white,
     paddingLeft: 5,
   	fontWeight:'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    backgroundColor: colors.primary,
   },
   bottomPart: {
   },
@@ -163,6 +164,7 @@ const styles = StyleSheet.create({
   ratingBox: { 
   	flexDirection:'row',
   	justifyContent:'space-around',
+    marginTop: 5,
   	marginLeft:5,
   	padding:3,
   	width:45,
