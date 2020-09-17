@@ -11,6 +11,7 @@ import ProductDetails from '../screens/ProductDetails';
 import ProductList from '../screens/ProductList';
 import AllCategoriesList from '../screens/AllCategoriesList';
 import AllBoxCategories from '../screens/AllBoxCategories';
+import Notifications from '../screens/Notifications';
 
 import EImageButton from '../components/EImageButton';
 import EMenuButton from '../components/EMenuButton';
@@ -29,6 +30,7 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.ProductList, () => ProductList);
   Navigation.registerComponent(Screens.AllCategoriesList, () => AllCategoriesList);
   Navigation.registerComponent(Screens.AllBoxCategories, () => AllBoxCategories);
+  Navigation.registerComponent(Screens.Notifications, () => Notifications);
 }
 
 export { registerScreens };
