@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   	color: colors.secondary
   },
   seeAll : {
-  	backgroundColor:colors.lightGrey,
+  	backgroundColor:colors.grey,
   	padding:18,
   	borderRadius:120,
   	width:60,

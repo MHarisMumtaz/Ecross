@@ -47,9 +47,11 @@ const styles = StyleSheet.create({
   },
   reviewerName:{
     fontSize: 15,
+    color: colors.grey,
     fontWeight: 'bold'
   },
   reviewerDate:{
+    fontSize: 12,
     color: colors.grey
   },
   reviewerRating:{

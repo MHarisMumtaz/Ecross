@@ -18,7 +18,8 @@ const Screens = {
   FeaturedProducts: 'FeaturedProducts',
   ProductList: 'ProductList',
 
-  Notifications: 'Notifications'
+  Notifications: 'Notifications',
+  UserProfile: 'UserProfile'
 }
 
 export default Screens;

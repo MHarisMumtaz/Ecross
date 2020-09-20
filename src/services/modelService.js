@@ -14,8 +14,8 @@ const DEFAULT_OPTION = {
 	    	text: 'Categories',
 	    	alignment: 'center',
 	    	color: 'Black'
-	    },
-  	},
+	    }
+  	}
 }
 
 export const showModal = (screenName, options = DEFAULT_OPTION) => {

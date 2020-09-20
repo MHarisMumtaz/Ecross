@@ -4,7 +4,7 @@ import colors from '../../commons/Colors';
 
 const { width } = Dimensions.get('window');
 
-const ListItem = ({children, setScrollEnabled, success, id}) => {
+const ListItem = ({id, children, setScrollEnabled, success, backgroundColor = colors.white}) => {
 
 	const gestureDelay = 35;
 	let scrollViewEnabled = true;
@@ -25,7 +25,7 @@ const ListItem = ({children, setScrollEnabled, success, id}) => {
 		  	if (gestureState.dx < -150) {
 			    Animated.timing(position, {
 			      toValue: {x: width, y: 0},
-			      duration: 150,
+			      duration: 100,
 			      useNativeDriver: false
 			    }).start(() => {
 			      success(id);
@@ -59,7 +59,7 @@ const ListItem = ({children, setScrollEnabled, success, id}) => {
 	        <View style={styles.absoluteCell}>
 	          <Text style={styles.absoluteCellText}>DELETE</Text>
 	        </View>
-	        <View style={styles.innerCell}>
+	        <View style={[styles.innerCell, {backgroundColor: backgroundColor}]}>
 	          { children }
 	        </View>
 	      </Animated.View>
@@ -72,6 +72,11 @@ const styles = StyleSheet.create({
   listItem: {
     justifyContent: 'center',
     backgroundColor: colors.delete,
+    elevation: 10,
+    shadowColor: colors.grey, // IOS
+    shadowOffset: { height: 5, width: 1 }, // IOS
+    shadowOpacity: 0.5, // IOS
+    shadowRadius: 10, //IOS
   },
   absoluteCell: {
     position: 'absolute',
@@ -88,7 +93,6 @@ const styles = StyleSheet.create({
   },
   innerCell: {
     width: width,
-    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },

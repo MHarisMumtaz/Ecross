@@ -73,21 +73,6 @@ const sideMenuData = [
 
 const SideMenu = () => {
 
-  const pushAndClose = () => {
-    Navigation.push('SideMenuCenter', {
-      component: {
-        name: Screens.Pushed,
-        options: {
-          sideMenu: {
-            left: {
-              visible: false,
-            },
-          },
-        },
-      },
-    });
-  }
-
   const renderSingleOption = (item) => {
     return (
       <TouchableOpacity key={item.id} style={styles.singleOption} onPress={() => {}}>

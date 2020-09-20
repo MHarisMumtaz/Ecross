@@ -1,5 +1,6 @@
 import colors from '../commons/Colors';
 import Screens from './Screens';
+import { showModal } from '../services/modelService';
 import { HAMBURGER_BUTTON_ID, TOP_RIGHT_BUTTON_ID } from '../utils/Constants';
 
 const MenuIcon = require("../../assets/menu48.png");
@@ -42,7 +43,10 @@ const topBarRightButtons = [
     	name: Screens.EIconButton,
     	passProps: {
     		icon: 'person-outline',
-    		color: colors.primary
+    		color: colors.primary,
+        onPress: () => {
+          showModal(Screens.UserProfile);
+        }
     	}
     }
   },

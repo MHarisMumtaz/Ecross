@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
 	},
 	favoriteButton:{
 		flex:1,
-		backgroundColor: colors.lightGrey
+		backgroundColor: colors.grey
 	},
 	buyButton:{
 		flex:1,

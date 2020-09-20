@@ -128,9 +128,8 @@ const styles = StyleSheet.create({
   },
   horizontalDescription:{
     fontSize: 12,
-    fontWeight: "bold",
-    width: windowWidth/2,
-    color: colors.lightGrey,
+    width: windowWidth/2.1,
+    color: colors.grey,
     flexWrap: 'wrap',
     padding:8,
     paddingBottom: 0
@@ -165,7 +164,7 @@ const styles = StyleSheet.create({
   	flexDirection:'row',
   	justifyContent:'space-around',
     marginTop: 5,
-  	marginLeft:5,
+  	marginRight:5,
   	padding:3,
   	width:45,
   	height:23, 

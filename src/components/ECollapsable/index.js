@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   childRow:{
       flexDirection: 'row',
       justifyContent:'space-between',
-      backgroundColor: colors.lightGrey,
+      backgroundColor: colors.grey,
       width:'100%',
       height:45,
       alignItems:'center',

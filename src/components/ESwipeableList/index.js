@@ -3,7 +3,7 @@ import { StyleSheet, SafeAreaView, TouchableOpacity, FlatList, View, Text, Dimen
 import colors from '../../commons/Colors';
 import ListItem from './ListItem';
 
-const ESwipeableList = ({containerStyle, listStyle, data = [], renderListItem, renderSeparator, onItemSwiped}) => {
+const ESwipeableList = ({containerStyle, listStyle, data = [], renderListItem, renderSeparator, onItemSwiped, oddColor = colors.white, evenColor = colors.lightGrey}) => {
 
     const [enableScroll, setEnableScroll] = useState(true);
 
@@ -13,6 +13,7 @@ const ESwipeableList = ({containerStyle, listStyle, data = [], renderListItem, r
             key={index}
             id={item.id}
             success={onItemSwiped}
+            backgroundColor={index%2===0 ? evenColor : oddColor}
             setScrollEnabled={enable => setEnableScroll(enable)}
           >
           { renderListItem(item,index) }
