@@ -5,11 +5,12 @@ import colors from '../../commons/Colors';
 
 const ECounter = ({
   value, 
+  vertical,
   containerStyle, 
   leftButtonStyle, 
   leftIcon = 'remove-outline', 
-  leftIconColor = colors.white,
-  rightIconColor = colors.white,
+  leftIconColor = colors.grey,
+  rightIconColor = colors.grey,
   rightIcon = 'add-outline', 
   rightButtonStyle, 
   textStyle, 
@@ -17,13 +18,13 @@ const ECounter = ({
   onPressLeft = () => {}}) => {
 
   return (
-     <View style={[styles.container,containerStyle]}>
-       <TouchableOpacity style={[styles.removeButton, leftButtonStyle]} onPress={onPressLeft}>
-         <Icon name={leftIcon} size={20} color={leftIconColor} />
+     <View style={[vertical ? styles.verticalContainer : styles.container,containerStyle]}>
+       <TouchableOpacity style={[vertical ? styles.removeButtonVertical : styles.removeButton, leftButtonStyle]} onPress={onPressLeft}>
+         <Icon name={leftIcon} size={18} color={leftIconColor} />
        </TouchableOpacity>
-       <Text style={[styles.text,textStyle]}>{value}</Text>
-       <TouchableOpacity style={[styles.addButton, rightButtonStyle]} onPress={onPressRight}>
-         <Icon name={rightIcon} size={20} color={rightIconColor} />
+       <Text style={[vertical ? styles.textVertical : styles.text,textStyle]}>{value}</Text>
+       <TouchableOpacity style={[vertical ? styles.addButtonVertical : styles.addButton, rightButtonStyle]} onPress={onPressRight}>
+         <Icon name={rightIcon} size={18} color={rightIconColor} />
        </TouchableOpacity>
      </View>
   )
@@ -37,34 +38,73 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.white,
   },
+  verticalContainer:{
+     backgroundColor: colors.white,
+     borderRadius: 20,
+     borderWidth: 2,
+     borderColor: colors.lightGrey
+  },
+  removeButtonVertical:{
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    backgroundColor: colors.lightGrey,
+    width: 25,
+    height: 25,
+    padding: 4,
+    elevation: 5,
+    shadowColor: colors.grey, // IOS
+    shadowOffset: { height: 0, width: 0 }, // IOS
+    shadowOpacity: 0.4, // IOS
+    shadowRadius: 3, //IOS
+  },
   removeButton:{
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
-    backgroundColor: colors.grey,
-    width: 30,
-    height: 30,
-    padding: 5,
+    backgroundColor: colors.lightGrey,
+    width: 25,
+    height: 25,
+    padding: 4,
     elevation: 10,
     shadowColor: colors.grey, // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
+    shadowOpacity: 0.4, // IOS
+    shadowRadius: 3, //IOS
+  },
+  addButtonVertical:{
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    backgroundColor: colors.lightGrey,
+    width: 25,
+    height: 25,
+    padding: 4,
+    elevation: 5,
+    shadowColor: colors.grey, // IOS
+    shadowOffset: { height: 0, width: 0 }, // IOS
+    shadowOpacity: 0.4, // IOS
     shadowRadius: 3, //IOS
   },
   addButton: {
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
-    backgroundColor: colors.grey,
-    width: 30,
-    height: 30,
-    padding: 5,
+    backgroundColor: colors.lightGrey,
+    width: 25,
+    height: 25,
+    padding: 4,
     elevation: 10,
     shadowColor: colors.grey, // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
+    shadowOffset: { height: 0, width: 0 }, // IOS
+    shadowOpacity: 0.4, // IOS
     shadowRadius: 3, //IOS
   },
+  textVertical:{
+    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 8,
+    marginBottom: 8,
+    color: colors.grey,
+  },
   text:{
-    fontSize: 20,
+    fontSize: 18,
     marginLeft: 10,
     marginRight: 10,
     color: colors.grey,
