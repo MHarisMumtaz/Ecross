@@ -18,14 +18,14 @@ const DEFAULT_OPTION = {
   	}
 }
 
-export const showModal = (screenName, options = DEFAULT_OPTION) => {
+export const showModal = (screenName, modalPresentationStyle = 'pageSheet', options = DEFAULT_OPTION) => {
 	Navigation.showModal({
 	  stack: {
 	    children: [
 	      {
 	        component: {
 	          name: screenName,
-	          options: options
+	          options: {...options, modalPresentationStyle}
 	        }
 	      }
 	    ]
