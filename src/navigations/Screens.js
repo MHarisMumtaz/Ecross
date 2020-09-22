@@ -17,7 +17,8 @@ const Screens = {
   ProductDetails: 'ProductDetails',
   FeaturedProducts: 'FeaturedProducts',
   ProductList: 'ProductList',
-
+  Cart: 'Cart',
+  
   Notifications: 'Notifications',
   UserProfile: 'UserProfile'
 }
