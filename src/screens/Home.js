@@ -5,6 +5,8 @@ import HorizontalBanners from './HorizontalBanners';
 import FeaturedProducts from './FeaturedProducts';
 import EFab from '../components/EFab';
 import colors from '../commons/Colors';
+import Screens from '../navigations/Screens';
+import { showModal } from '../services/modelService';
 
 const windowHeight = Dimensions.get('window').height;
 const wait = (timeout) => {
@@ -23,6 +25,10 @@ const Home = (props) => {
 	    wait(2000).then(() => setRefreshing(false));
 	}, []);
 
+  const onPressCart = () => {
+    showModal(Screens.Cart, 'fullScreen');
+  }
+
     return (
     	<SafeAreaView style={styles.container}>
 	    	<ScrollView 
@@ -35,7 +41,11 @@ const Home = (props) => {
 	    		<HorizontalBanners {...props} />
 	    		<FeaturedProducts {...props} />
 	    	</ScrollView>
-        <EFab icon='cart-outline' size={30} />
+        <EFab 
+          icon='cart-outline' 
+          size={30} 
+          onPress={onPressCart}
+        />
     	</SafeAreaView>
     );
 }
