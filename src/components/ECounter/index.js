@@ -4,7 +4,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../../commons/Colors';
 
 const ECounter = ({
-  value, 
+  value,
+  shadow,
   vertical,
   containerStyle, 
   leftButtonStyle, 
@@ -19,11 +20,25 @@ const ECounter = ({
 
   return (
      <View style={[vertical ? styles.verticalContainer : styles.container,containerStyle]}>
-       <TouchableOpacity style={[vertical ? styles.removeButtonVertical : styles.removeButton, leftButtonStyle]} onPress={onPressLeft}>
+       <TouchableOpacity 
+         style={[
+           vertical ? styles.removeButtonVertical : styles.removeButton,
+           leftButtonStyle,
+           shadow ? styles.shadow : {}
+          ]} 
+         onPress={onPressLeft}
+        >
          <Icon name={leftIcon} size={18} color={leftIconColor} />
        </TouchableOpacity>
        <Text style={[vertical ? styles.textVertical : styles.text,textStyle]}>{value}</Text>
-       <TouchableOpacity style={[vertical ? styles.addButtonVertical : styles.addButton, rightButtonStyle]} onPress={onPressRight}>
+       <TouchableOpacity 
+         style={[
+           vertical ? styles.addButtonVertical : styles.addButton,
+           rightButtonStyle,
+           shadow ? styles.shadow : {}
+         ]} 
+         onPress={onPressRight}
+        >
          <Icon name={rightIcon} size={18} color={rightIconColor} />
        </TouchableOpacity>
      </View>
@@ -37,12 +52,30 @@ const styles = StyleSheet.create({
   container:{
     flexDirection: 'row',
     backgroundColor: colors.white,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: colors.lightGrey
   },
   verticalContainer:{
      backgroundColor: colors.white,
      borderRadius: 20,
      borderWidth: 2,
+     width: 28,
      borderColor: colors.lightGrey
+  },
+  shadow:{
+    elevation: 5,
+    shadowColor: colors.grey, // IOS
+    shadowOffset: { height: 0, width: 0 }, // IOS
+    shadowOpacity: 0.4, // IOS
+    shadowRadius: 3, //IOS
+  },
+  shadowDown:{
+    elevation: 10,
+    shadowColor: colors.grey, // IOS
+    shadowOffset: { height: 1, width: 1 }, // IOS
+    shadowOpacity: 0.4, // IOS
+    shadowRadius: 3, //IOS
   },
   removeButtonVertical:{
     borderTopLeftRadius: 20,
@@ -51,11 +84,6 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     padding: 4,
-    elevation: 5,
-    shadowColor: colors.grey, // IOS
-    shadowOffset: { height: 0, width: 0 }, // IOS
-    shadowOpacity: 0.4, // IOS
-    shadowRadius: 3, //IOS
   },
   removeButton:{
     borderTopLeftRadius: 20,
@@ -64,11 +92,6 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     padding: 4,
-    elevation: 10,
-    shadowColor: colors.grey, // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 0.4, // IOS
-    shadowRadius: 3, //IOS
   },
   addButtonVertical:{
     borderBottomLeftRadius: 20,
@@ -77,11 +100,6 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     padding: 4,
-    elevation: 5,
-    shadowColor: colors.grey, // IOS
-    shadowOffset: { height: 0, width: 0 }, // IOS
-    shadowOpacity: 0.4, // IOS
-    shadowRadius: 3, //IOS
   },
   addButton: {
     borderTopRightRadius: 20,
@@ -90,17 +108,12 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     padding: 4,
-    elevation: 10,
-    shadowColor: colors.grey, // IOS
-    shadowOffset: { height: 0, width: 0 }, // IOS
-    shadowOpacity: 0.4, // IOS
-    shadowRadius: 3, //IOS
   },
   textVertical:{
     fontSize: 18,
     textAlign: 'center',
-    marginTop: 8,
-    marginBottom: 8,
+    marginTop: 5,
+    marginBottom: 5,
     color: colors.grey,
   },
   text:{
