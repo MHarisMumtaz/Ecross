@@ -152,7 +152,8 @@ const ProductDetails = ({}) => {
 		        	</View>
 		        	<View style={styles.ratingSection}>
 			        	<ERating rating={1.4} />
-			        	<ECounter 
+			        	<ECounter
+			        		shadow
 			        		value={quantity}
 			        		onPressLeft={onPressReduceQuantity} 
 			        		onPressRight={onPressAddQuantity} 
