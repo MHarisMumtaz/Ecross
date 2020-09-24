@@ -9,6 +9,7 @@ const colors = {
 	white: 'white',
 	golden: '#ffca01',
 	orange: '#ffc00e',
+	borderHighlight: '#bec6db',
 	backgroundColor: '#f7f7f7'
 }
 const ColorsCollection = [

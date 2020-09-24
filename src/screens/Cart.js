@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView, ScrollView, FlatList, View, Text, TouchableOp
 import colors from '../commons/Colors';
 import ECounter from '../components/ECounter';
 import EIconButton from '../components/EIconButton';
+import ETextButton from '../components/ETextButton';
 
 import { PRODUCT_LIST } from '../utils/Constants';
 
@@ -60,15 +61,42 @@ const Cart = () => {
 
     return (
 		<SafeAreaView style={styles.container}>
+		<View style={{flex: 1}}>
 			<ScrollView
-				contentContainerStyle={styles.contentContainer} 
-	    		fadingEdgeLength={100}
+				contentContainerStyle={styles.contentContainer}
           		showsVerticalScrollIndicator={false}
 			>
 			{
 				PRODUCT_LIST.map((item,index) => renderItem(item,index))
-			}		
+			}
 			</ScrollView>
+			</View>
+			<View style={[styles.summarySection,styles.shadow, PRODUCT_LIST.length<=2 ? {flex: 2} : {} ]}>
+				<Text style={styles.summaryTitle}>Summary</Text>
+				<View style={{alignItems: 'flex-end'}}>
+					<View style={styles.summaryItem}>
+						<Text style={styles.summaryItemLabel}>SubTotal</Text>
+						<Text style={styles.summaryItemValue}>$1000</Text>
+					</View>
+					<View style={styles.summaryItem}>
+						<Text style={styles.summaryItemLabel}>Discount</Text>
+						<Text style={styles.summaryItemValue}>$100</Text>
+					</View>
+					<View style={styles.summaryItem}>
+						<Text style={styles.summaryItemLabel}>Tax</Text>
+						<Text style={styles.summaryItemValue}>$0</Text>
+					</View>
+					<View style={[styles.summaryItem,styles.upperBorder]}>
+						<Text style={styles.summaryItemLabel}>Total</Text>
+						<Text style={styles.summaryItemValue}>$1100</Text>
+					</View>
+				</View>
+				<ETextButton 
+	    			containerStyle={styles.checkoutButton}
+	    			text='Checkout' 
+	    			rightIcon={'chevron-forward'}
+	    		/>
+			</View>	
 		</SafeAreaView>
     );
 }
@@ -132,5 +160,43 @@ const styles = StyleSheet.create({
   	width: 15,
   	height: 15,
   	borderRadius: 50
-  }
+  },
+  summarySection:{
+  	backgroundColor: colors.white,
+  	padding: 10
+  },
+  summaryTitle:{
+  	fontSize: 16,
+  	color: colors.lightBlack,
+  	fontWeight: 'bold'
+  },
+  summaryItem:{
+  	width: windowWidth/2,
+  	flexDirection: 'row',
+  	justifyContent: 'space-between'
+  },
+  summaryItemLabel:{
+  	alignSelf: 'flex-start',
+  	color: colors.grey
+  },
+  summaryItemValue:{
+  	fontWeight: 'bold',
+  	color: colors.lightBlack
+  },
+  upperBorder:{
+  	borderTopWidth: 1,
+  	borderColor: colors.borderHighlight
+  },
+  checkoutButton:{
+  	width: windowWidth/2,
+	borderTopRightRadius:60,
+	borderBottomRightRadius:60
+  },
+  shadow:{
+    elevation:10, //Android
+    shadowColor: colors.lightBlack, // IOS
+    shadowOffset: { height: 0, width: 0 }, // IOS
+    shadowOpacity: 0.3, // IOS
+    shadowRadius: 7, //IOS
+  },
 })
