@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, ScrollView, FlatList, View, Text, TouchableOpacity, Dimensions, Image, Platform } from 'react-native';
 import colors from '../commons/Colors';
 import ECounter from '../components/ECounter';
+import EIconButton from '../components/EIconButton';
+
 import { PRODUCT_LIST } from '../utils/Constants';
 
 const windowHeight = Dimensions.get('window').height;
@@ -50,6 +52,7 @@ const Cart = () => {
 		        		leftIcon='add-outline'
 		        		rightIcon='remove-outline'
 	            	/>
+	            	<EIconButton icon='trash-bin-outline' color={colors.grey} />
 	            </View>
 			</View>	
 		);
@@ -111,7 +114,8 @@ const styles = StyleSheet.create({
   	color: colors.primary
   },
   cartItemQuantity:{
-  	justifyContent: 'center'
+  	flex: 1,
+  	alignItems: 'center'
   },
   cartItemSize:{
   	fontSize: 12,
