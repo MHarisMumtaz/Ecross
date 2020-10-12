@@ -18,6 +18,7 @@ const Screens = {
   FeaturedProducts: 'FeaturedProducts',
   ProductList: 'ProductList',
   Cart: 'Cart',
+  Checkout: 'Checkout',
   
   Notifications: 'Notifications',
   UserProfile: 'UserProfile'
