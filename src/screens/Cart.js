@@ -5,6 +5,9 @@ import ECounter from '../components/ECounter';
 import EIconButton from '../components/EIconButton';
 import ETextButton from '../components/ETextButton';
 
+import Screens from '../navigations/Screens';
+import { showModal } from '../services/modelService';
+
 import { PRODUCT_LIST } from '../utils/Constants';
 
 const windowHeight = Dimensions.get('window').height;
@@ -19,6 +22,10 @@ const Cart = () => {
 	const onPressReduceQuantity = (item,index) => {
 		setQuantity(quantity - 1);
 	}
+
+  const onPressCheckout = () => {
+    showModal(Screens.Checkout, 'fullScreen');
+  }
 
 	renderItem = (item,index) => {
 		return (
@@ -61,11 +68,13 @@ const Cart = () => {
 
     return (
 		<SafeAreaView style={styles.container}>
+    
 		<View style={{flex: 1}}>
 			<ScrollView
 				contentContainerStyle={styles.contentContainer}
           		showsVerticalScrollIndicator={false}
 			>
+      <Text style={styles.heading}>My Cart</Text>
 			{
 				PRODUCT_LIST.map((item,index) => renderItem(item,index))
 			}
@@ -95,6 +104,7 @@ const Cart = () => {
 	    			containerStyle={styles.checkoutButton}
 	    			text='Checkout' 
 	    			rightIcon={'chevron-forward'}
+            onPress={onPressCheckout}
 	    		/>
 			</View>	
 		</SafeAreaView>
@@ -109,6 +119,12 @@ const styles = StyleSheet.create({
     padding:0,
     height: windowHeight / 1.3,
     backgroundColor: colors.backgroundColor
+  },
+  heading:{
+    fontSize: 20,
+    color: colors.grey,
+    fontWeight: 'bold',
+    paddingLeft: 15
   },
   contentContainer: {
   	padding: 10,
