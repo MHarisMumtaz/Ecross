@@ -29,7 +29,7 @@ const Checkout = () => {
         initialPage={0}
         scrollEnabled={false}
       >
-        <View key="1" style={styles.guestLoginView}>
+        <View key="1" style={styles.page}>
           
           <Text style={styles.heading}>Sign In</Text>
           
@@ -55,19 +55,19 @@ const Checkout = () => {
           </TouchableOpacity>
 
         </View>
-        <View key="2" style={styles.shippingAddressView}>
+        <View key="2" style={styles.page}>
           <Text>Shipping Address</Text>
            <TouchableOpacity onPress={()=>nextPage(2)}>
             <Text>next</Text>
           </TouchableOpacity>
         </View>
-        <View key="3" style={styles.paymentView}>
+        <View key="3" style={styles.page}>
           <Text>Payment</Text>
            <TouchableOpacity onPress={()=>nextPage(3)}>
             <Text>next</Text>
           </TouchableOpacity>
         </View>
-        <View key="4" style={styles.confirmationView}>
+        <View key="4" style={styles.page}>
           <Text>Confirmation</Text>
            <TouchableOpacity onPress={()=>nextPage(0)}>
             <Text>next</Text>
@@ -101,22 +101,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3, // IOS
     shadowRadius: 10, //IOS
   },
-  guestLoginView:{
+  page:{
     backgroundColor: colors.white,
     borderRadius: 20,
     padding: 18
-  },
-  shippingAddressView:{
-    backgroundColor: colors.primary,
-    borderRadius: 20
-  },
-  paymentView:{
-    backgroundColor: colors.secondary,
-    borderRadius: 20
-  },
-  confirmationView:{
-    backgroundColor: colors.lightBlack,
-    borderRadius: 20
   },
   email:{
     alignSelf:'center'
