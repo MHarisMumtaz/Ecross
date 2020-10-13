@@ -166,7 +166,7 @@ const SearchFilters = ({ categories }) => {
 				<Text style={styles.label}>Size:</Text>
 				<ESelectableList collection={sizeCollection} buttonStyle={styles.sizeButton} onPress={(item,i)=> onPressSize(item,i)} />
 			</View>
-			<View style={{alignSelf: 'flex-end',flex: 1}}>
+			<View style={{alignSelf: 'flex-end'}}>
 				<ETextButton
 					rounded
 					containerStyle={styles.saveButton}

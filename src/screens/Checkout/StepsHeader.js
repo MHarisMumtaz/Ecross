@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Animated, Easing, StyleSheet, View, Text, TouchableOpacity, Dimensions, Image, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import ViewPager from '@react-native-community/viewpager';
 import colors from '../../commons/Colors';
+
 import Line from './Line';
 
 const windowHeight = Dimensions.get('window').height;
@@ -37,10 +37,9 @@ const StepsHeader = ({ currentPage, totalPages }) => {
 	const { line1, line2, line3 } = lines;
   return (
     <View style={styles.steps}>
-
     	<View style={styles.stepBox}>
     		<Icon style={styles.icon} name="md-person-circle-outline" size={25} color={colors.primary} />
-    		<Text style={styles.stepsText}>Login</Text>
+    		<Text style={styles.stepsText}>Personal</Text>
     	</View>
     	<Line animate={line1} />
     	<View style={styles.stepBox}>
@@ -65,7 +64,8 @@ export default StepsHeader;
 
 const styles = StyleSheet.create({
   steps:{
-    marginBottom: 10,
+    marginTop: 5,
+    margin: 10,
     flexDirection: 'row'
   },
   stepBox:{

@@ -22,8 +22,6 @@ const ETextButton = ({
           styles.container,
           containerStyle,
           {
-            width: (containerStyle && containerStyle.width) ? containerStyle.width : 100,
-            height: (containerStyle && containerStyle.height) ? containerStyle.height : 50,
             borderRadius: rounded ? 30 : 0
           }
         ]}
@@ -42,8 +40,7 @@ const ETextButton = ({
           styles.container,
           containerStyle,
           {
-            width: (containerStyle && containerStyle.width) ? containerStyle.width : 100,
-            height: (containerStyle && containerStyle.height) ? containerStyle.height : 50,
+            
             borderRadius: rounded ? 30 : 0
           }
         ]} 

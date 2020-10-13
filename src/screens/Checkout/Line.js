@@ -27,7 +27,12 @@ const Line = ({colorBefore = colors.secondary, colorAfter = colors.primary, anim
 	},[animate]);
 
 	return (
-		<Animated.View style={[styles.line, {borderColor: colorInterpolate}]} />
+		<Animated.View style={[
+			styles.line, 
+			{ 
+				borderColor: colorInterpolate 
+			}
+		]} />
 	);
 }
 

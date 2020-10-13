@@ -3,6 +3,8 @@ import { StyleSheet, SafeAreaView, ScrollView, FlatList, View, Text, TouchableOp
 import ViewPager from '@react-native-community/viewpager';
 import colors from '../../commons/Colors';
 import StepsHeader from './StepsHeader';
+import ETextInput from '../../components/ETextInput';
+import ETextButton from '../../components/ETextButton';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -17,7 +19,7 @@ const Checkout = () => {
   }
 
   return (
-    <SafeAreaView style={{flex: 1, padding: 15}}>
+    <View style={styles.container}>
       
       <StepsHeader currentPage={currentPage} totalPages={4} />
 
@@ -28,10 +30,30 @@ const Checkout = () => {
         scrollEnabled={false}
       >
         <View key="1" style={styles.guestLoginView}>
-          <Text>Login</Text>
-          <TouchableOpacity onPress={()=>nextPage(1)}>
-            <Text>next</Text>
+          
+          <Text style={styles.heading}>Sign In</Text>
+          
+          <ETextInput 
+            showShadow
+            rounded
+            containerStyle={styles.email}
+            placeholder="Email"
+            leftIcon="mail"
+            leftIconColor={colors.secondary}
+          />
+
+          <ETextButton
+            rounded
+            text='Login as Guest'
+            containerStyle={styles.guestButton}
+            rightIcon="chevron-forward"
+            onPress={()=>nextPage(1)}
+          />
+
+          <TouchableOpacity onPress={()=> console.log('login')}>
+            <Text style={styles.alreadyAccount}>already have an account?</Text>
           </TouchableOpacity>
+
         </View>
         <View key="2" style={styles.shippingAddressView}>
           <Text>Shipping Address</Text>
@@ -52,20 +74,37 @@ const Checkout = () => {
           </TouchableOpacity>
         </View>
       </ViewPager>
-    </SafeAreaView>
+    </View>
   );
 }
 
 export default Checkout;
 
 const styles = StyleSheet.create({
+  container:{
+    flex: 1, 
+    padding: 15,
+    backgroundColor: colors.backgroundColor
+  },
+  heading:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.grey,
+    padding: 20,
+    paddingLeft: 5
+  },
   viewPager: {
-    flex: 1
+    flex: 1,
+    elevation:20, //Android
+    shadowColor: colors.grey, // IOS
+    shadowOffset: { height: 0, width: 0 }, // IOS
+    shadowOpacity: 0.3, // IOS
+    shadowRadius: 10, //IOS
   },
   guestLoginView:{
-    flex: 1,
-    backgroundColor: colors.golden,
-    borderRadius: 20
+    backgroundColor: colors.white,
+    borderRadius: 20,
+    padding: 18
   },
   shippingAddressView:{
     backgroundColor: colors.primary,
@@ -78,5 +117,16 @@ const styles = StyleSheet.create({
   confirmationView:{
     backgroundColor: colors.lightBlack,
     borderRadius: 20
+  },
+  email:{
+    alignSelf:'center'
+  },
+  guestButton:{
+    marginTop: 30,
+    marginBottom: 30
+  },
+  alreadyAccount:{
+    color: colors.grey, 
+    textDecorationLine:'underline'
   }
 })
