@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import colors from '../../../commons/Colors';
 import { CHECKOUT_STEPS } from '../../../utils/Constants';
 
 import ETextInput from '../../../components/ETextInput';
 import ETextButton from '../../../components/ETextButton';
+
+const width = Dimensions.get('window').width;
 
 const LoginStep = ({ onComplete = () => {} }) => {
 
@@ -53,6 +55,9 @@ const styles = StyleSheet.create({
     paddingTop: 0,
     padding: 18,
     paddingLeft: 5
+  },
+  email:{
+  	width: width / 1.2
   },
   guestButton:{
     marginTop: 30,
