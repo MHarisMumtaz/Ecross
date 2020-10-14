@@ -13,6 +13,13 @@ export const LIST_STYLE_TYPE_ICON = {
 	LIST: 'list-sharp'
 }
 
+export const CHECKOUT_STEPS = {
+	LOGIN: 'LOGIN',
+	ADDRESS: 'ADDRESS',
+	PAYMENT: 'PAYMENT',
+	CONFIRM: 'CONFIRM'
+};
+
 export const PRODUCT_LIST = [
 	{
 		id: '1',
