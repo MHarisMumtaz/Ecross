@@ -1,13 +1,34 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, SafeAreaView, ScrollView, FlatList, View, Text, TouchableOpacity, Dimensions, Image, Platform } from 'react-native';
+import { StyleSheet, SafeAreaView, ScrollView, FlatList, View, Text, TextInput, TouchableOpacity, Dimensions, Image, Platform } from 'react-native';
 import ViewPager from '@react-native-community/viewpager';
 import colors from '../../commons/Colors';
+
 import StepsHeader from './StepsHeader';
+import PaymentOptions from './PaymentOptions';
+
 import ETextInput from '../../components/ETextInput';
 import ETextButton from '../../components/ETextButton';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
+const radios = [
+  {
+    key: 'samsung',
+    text: 'Samsung',
+  },
+  {
+    key: 'apple',
+    text: 'Apple',
+  },
+  {
+    key: 'motorola',
+    text: 'Motorola',
+  },
+  {
+    key: 'lenovo',
+    text: 'Lenovo',
+  },
+];
 
 const Checkout = () => {
   const [currentPage, setCurrentPage] = useState(null);
@@ -56,16 +77,60 @@ const Checkout = () => {
 
         </View>
         <View key="2" style={styles.page}>
-          <Text>Shipping Address</Text>
-           <TouchableOpacity onPress={()=>nextPage(2)}>
-            <Text>next</Text>
-          </TouchableOpacity>
+          <Text style={styles.heading}>Address</Text>
+          <View style={{flex:1}}>
+            <ScrollView 
+              contentContainerStyle={styles.contentContainer}
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
+              fadingEdgeLength={100}
+              >
+              <ETextInput 
+                showShadow
+                rounded
+                containerStyle={styles.input}
+                placeholder="Full Name"
+                leftIcon="person"
+                leftIconColor={colors.secondary}
+              />
+              <ETextInput 
+                showShadow
+                rounded
+                containerStyle={styles.input}
+                placeholder="City"
+                leftIcon="home"
+                leftIconColor={colors.secondary}
+              />
+              <ETextInput 
+                showShadow
+                rounded
+                containerStyle={styles.input}
+                placeholder="Country"
+                leftIcon="md-business"
+                leftIconColor={colors.secondary}
+              />
+              <ETextInput 
+                showShadow
+                rounded
+                multiline
+                containerStyle={styles.input}
+                placeholder="Street Address"
+                textContentType="fullStreetAddress"
+                leftIconColor={colors.secondary}
+              />
+              <ETextButton
+                rounded
+                text='Continue'
+                containerStyle={styles.continue}
+                rightIcon="chevron-forward"
+                 onPress={()=>nextPage(2)}
+              />
+            </ScrollView>
+          </View>
         </View>
         <View key="3" style={styles.page}>
-          <Text>Payment</Text>
-           <TouchableOpacity onPress={()=>nextPage(3)}>
-            <Text>next</Text>
-          </TouchableOpacity>
+          <Text style={styles.heading}>Payment</Text>
+          <PaymentOptions />
         </View>
         <View key="4" style={styles.page}>
           <Text>Confirmation</Text>
@@ -86,11 +151,15 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: colors.backgroundColor
   },
+  contentContainer:{
+    paddingVertical: 30
+  },
   heading:{
     fontSize: 20,
     fontWeight: 'bold',
     color: colors.grey,
-    padding: 20,
+    paddingTop: 0,
+    padding: 18,
     paddingLeft: 5
   },
   viewPager: {
@@ -104,10 +173,17 @@ const styles = StyleSheet.create({
   page:{
     backgroundColor: colors.white,
     borderRadius: 20,
-    padding: 18
+    padding: 18,
+    paddingBottom: 0
   },
-  email:{
-    alignSelf:'center'
+  input:{
+    alignSelf:'center',
+    marginBottom: 30
+  },
+  textArea:{
+    height: 40,
+    color: colors.grey,
+    textAlignVertical: 'top'
   },
   guestButton:{
     marginTop: 30,
@@ -116,5 +192,8 @@ const styles = StyleSheet.create({
   alreadyAccount:{
     color: colors.grey, 
     textDecorationLine:'underline'
+  },
+  continue:{
+    marginTop: 10
   }
 })
